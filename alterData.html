@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>4347 Database Project</title>
+</head>
+
+<body>
+    <nav>
+        <a href="./index.html">Search</a>
+        <a href="./alterData.html">Alter Data</a>
+    </nav><br>
+
+    <h3>Data Alterations</h3>
+
+    <form>
+        <label for="request">Choose the type of request:</label>
+        <select name="Request" id="request">
+            <option value="create">Create</option>
+            <option value="update">Update</option>
+            <option value="delete">Delete</option>
+        </select><br>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" placeholder="ID" size="30"><br>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" placeholder="First Name" size="30"><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name" size="30"><br>
+        <label for="position">Position:</label>
+        <input type="text" id="position" name="position" placeholder="Position" size="30"><br>
+        <label for="birthDate">Birthdate:</label>
+        <input type="text" id="birthDate" name="birthDate" placeholder="Birthdate" size="30"><br>
+        <label for="team">Team:</label>
+        <input type="text" id="team" name="team" placeholder="Team" size="30"><br>
+        <label for="games">Games:</label>
+        <input type="text" id="games" name="games" placeholder="Games" size="30"><br>
+        <label for="minutesPlayed">Minutes Played Per Game:</label>
+        <input type="text" id="minutesPlayed" name="minutesPlayed" placeholder="Minutes Played Per Game" size="30"><br>
+        <label for="assists">Assists Per Game:</label>
+        <input type="text" id="assists" name="assists" placeholder="Assists Per Game" size="30"><br>
+        <label for="blocks">Blocks Per Game:</label>
+        <input type="text" id="blocks" name="blocks" placeholder="Blocks Per Game" size="30"><br>
+    </form><br>
+    <input type="button" value="Submit Request"
+        onclick="searchQuery(identifier.value, identifierText.value), showAlert()">
+    </form><br>
+</body>
+
+<script>
+    function showAlert() {
+        alert("Request Submitted")
+        document.getElementById("request").value = "create"
+        document.getElementById("id").value = ""
+        document.getElementById("firstName").value = ""
+        document.getElementById("lastName").value = ""
+        document.getElementById("position").value = ""
+        document.getElementById("birthDate").value = ""
+        document.getElementById("team").value = ""
+        document.getElementById("games").value = ""
+        document.getElementById("minutesPlayed").value = ""
+        document.getElementById("assists").value = ""
+        document.getElementById("blocks").value = ""
+    }
+
+    function searchQuery(identifier, identifierText) {
+        return `Identifier: ${identifier};\Idnetifier Text: ${identifierText};`
+    }
+
+</script>
+
+</html>
