@@ -1,3 +1,1 @@
-### 4347 DB Project
-## Phase 3
-## Due Sunday
+### 4347 DB Project DUEDATE: November 5
