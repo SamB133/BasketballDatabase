@@ -3,12 +3,12 @@ use project4347;
 show tables;
 
 create table team(
-		teamName varchar(255),
+	teamName varchar(255),
         constraint PK_teamName primary key (teamName)
 );
 
 create table manager(
-		tName varchar(255) not null,
+	tName varchar(255) not null,
         fName varchar(255),
         lName varchar(255),
         birthday date,
@@ -19,7 +19,7 @@ create table manager(
 
 
 create table player(
-		playerID int not null,
+	playerID int not null,
         fName varchar(255),
         lName varchar(255),
         birthday date,
@@ -31,8 +31,8 @@ create table player(
 );
 
 create table match_(
-		matchNum int not null,
-		matchTime time,
+	matchNum int not null,
+	matchTime time,
         homeScore int,
         awayScore int,
         location varchar(255),
@@ -40,7 +40,7 @@ create table match_(
 );
 
 create table partecipatedIn(
-		playerID int not null,
+	playerID int not null,
         matchNum int not null,
         blocks int,
         assists int,
@@ -54,7 +54,7 @@ create table partecipatedIn(
 );
 
 create table playedIn(
-		Mnum int not null,
+	Mnum int not null,
         homeTeam varchar(255) not null,
         awayTeam varchar(255) not null,
         constraint PK_playedIn primary key (Mnum,homeTeam,awayTeam),
