@@ -39,7 +39,7 @@ create table match_(
         constraint PK_match primary key (matchNum)
 );
 
-create table partecipatedIn(
+create table participatedIn(
 	playerID int not null,
         matchNum int not null,
         blocks int,
