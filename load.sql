@@ -17,7 +17,7 @@ LINES TERMINATED BY '\n'
 (playerID, fName, lName, birthday, position, tName);
 
 -- Load data for match_ table
-LOAD DATA LOCAL INFILE 'match_.csv' INTO TABLE match_
+LOAD DATA LOCAL INFILE 'match.csv' INTO TABLE match_
 FIELDS TERMINATED BY '\,' 
 LINES TERMINATED BY '\n'
 (matchNum, matchTime, homeScore, awayScore, location);
