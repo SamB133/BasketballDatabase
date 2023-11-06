@@ -1,35 +1,34 @@
--- Load data for team table
-LOAD DATA LOCAL INFILE 'team.csv' INTO TABLE team
-FIELDS TERMINATED BY '\,' 
+LOAD DATA INFILE 'team.csv' INTO TABLE team
+FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
-(teamName);
+IGNORE 1 ROWS;
 
--- Load data for manager table
-LOAD DATA LOCAL INFILE 'manager.csv' INTO TABLE manager
-FIELDS TERMINATED BY '\,' 
+LOAD DATA INFILE 'manager.csv'
+INTO TABLE manager
+FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
-(tName, fName, lName, birthday);
+IGNORE 1 ROWS;
 
--- Load data for player table
-LOAD DATA LOCAL INFILE 'player.csv' INTO TABLE player
-FIELDS TERMINATED BY '\,' 
+LOAD DATA LOCAL INFILE 'player.csv'
+INTO TABLE player
+FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
-(playerID, fName, lName, birthday, position, tName);
+IGNORE 1 ROWS;
 
--- Load data for match_ table
-LOAD DATA LOCAL INFILE 'match.csv' INTO TABLE match_
-FIELDS TERMINATED BY '\,' 
+LOAD DATA LOCAL INFILE 'match.csv'
+INTO TABLE match_
+FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
-(matchNum, matchTime, homeScore, awayScore, location);
+IGNORE 1 ROWS;
 
--- Load data for partecipatedIn table
-LOAD DATA LOCAL INFILE 'partecipatedIn.csv' INTO TABLE partecipatedIn
-FIELDS TERMINATED BY '\,' 
+LOAD DATA LOCAL INFILE 'participatedIn.csv'
+INTO TABLE partecipatedIn
+FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
-(playerID, matchNum, blocks, assists, minutesPlayed, pointScored, passesMade);
+IGNORE 1 ROWS;
 
--- Load data for playedIn table
-LOAD DATA LOCAL INFILE 'playedIn.csv' INTO TABLE playedIn
-FIELDS TERMINATED BY '\,' 
+LOAD DATA LOCAL INFILE 'playedIn.csv'
+INTO TABLE playedIn
+FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
-(Mnum, homeTeam, awayTeam);
+IGNORE 1 ROWS;
