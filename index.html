@@ -3,6 +3,17 @@
 
 <head>
     <title>4347 Database Project</title>
+    <style>
+        div {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,13 +40,14 @@
             <option value="points">Points Per Game</option>
             <option value="passes">Passes Made</option>
         </select>
-    </form><br>
+    </form>
     <label for="identifierText">Search:</label>
-    <input type="text" id="identifierText" name="identifierText" placeholder="Search Text" size="30"><br>
-    <br>
+    <input type="text" id="identifierText" name="identifierText" placeholder="Search Text" size="30"><br><br>
     <input type="button" value="Submit Query Request"
         onclick="searchQuery(identifier.value, identifierText.value), showAlert()">
-    </form><br>
+    </form><br><br>
+    <label for="queryResults">Query Results:</label><br>
+    <input type="text" id="queryResults" name="queryResults" placeholder="Waiting for Query..." size="30" readonly><br>
 </body>
 
 <script>
