@@ -25,7 +25,7 @@
 
     <h3>Data Search</h3>
 
-    <form>
+    <form id="queryForm">
         <!-- Dropdown Selector -->
         <label for="tableSelector">Choose an identifier to search by:</label>
         <select name="TableSelector" id="tableSelector" onchange="changeTableDropdown(this.value)">
@@ -108,7 +108,7 @@
         </div>
     </form>
 
-    <button onclick="searchQuery()" id="searchButton">Search</button><br>
+    <button onclick="searchQuery(), showAlert()" id="searchButton">Search</button><br>
 
     <label for="queryResults">Query Results:</label><br>
     <input type="text" id="queryResults" name="queryResults" placeholder="Waiting for Query..." size="30" readonly><br>
@@ -135,8 +135,13 @@
 
     function showAlert() {
         alert("Query Sent")
-        document.getElementById("identifier").value = "id"
-        document.getElementById("identifierText").value = ""
+        const queryForm = document.getElementById("queryForm")
+        queryForm.reset()
+        document.getElementById("playerDropdown").style.display = "none"
+        document.getElementById("participatedInDropdown").style.display = "none"
+        document.getElementById("matchDropdown").style.display = "none"
+        document.getElementById("playedInDropdown").style.display = "none"
+        document.getElementById("managerDropdown").style.display = "none"
     }
 
     function searchQuery(identifier, identifierText) {
