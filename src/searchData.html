@@ -27,13 +27,13 @@
 
     <form id="queryForm">
         <!-- Dropdown Selector -->
-        <label for="tableSelector">Choose an identifier to search by:</label>
-        <select name="TableSelector" id="tableSelector" onchange="changeTableDropdown(this.value)">
-            <option value="default" selected disabled hidden>Choose Option</option>
+        <label for="typeSelection">Choose a search type:</label>
+        <select name="TypeSelection" id="typeSelection" onchange="changeTableDropdown(this.value)">
+            <option value="default" selected disabled hidden>Choose Type</option>
             <option value="playerDropdown">Player</option>
-            <option value="participatedInDropdown">Participated</option>
+            <option value="participatedInDropdown">Participated In</option>
             <option value="matchDropdown">Match</option>
-            <option value="playedInDropdown">Played</option>
+            <option value="playedInDropdown">Played In</option>
             <option value="managerDropdown">Manager</option>
         </select>
 
@@ -146,11 +146,11 @@
 
     function getQuerySubmission() {
         // Get the values from the form section according to the dropdown selection
-        const tableSelector = document.getElementById("tableSelector").value
+        const typeSelection = document.getElementById("typeSelection").value
         const queryForm = document.getElementById("queryForm")
         const queryFormElements = queryForm.elements
         const queryFormValues = {}
-        if (tableSelector == "playerDropdown") {
+        if (typeSelection == "playerDropdown") {
             for (let i = 1; i <= 6; i++) {
                 if (queryFormElements[i].value === "") {
                     queryFormValues[queryFormElements[i].name] = "*"
@@ -158,7 +158,7 @@
                     queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
                 }
             }
-        } else if (tableSelector == "participatedInDropdown") {
+        } else if (typeSelection == "participatedInDropdown") {
             for (let i = 7; i <= 13; i++) {
                 if (queryFormElements[i].value === "") {
                     queryFormValues[queryFormElements[i].name] = "*"
@@ -166,7 +166,7 @@
                     queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
                 }
             }
-        } else if (tableSelector == "matchDropdown") {
+        } else if (typeSelection == "matchDropdown") {
             for (let i = 14; i <= 18; i++) {
                 if (queryFormElements[i].value === "") {
                     queryFormValues[queryFormElements[i].name] = "*"
@@ -174,7 +174,7 @@
                     queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
                 }
             }
-        } else if (tableSelector == "playedInDropdown") {
+        } else if (typeSelection == "playedInDropdown") {
             for (let i = 19; i <= 21; i++) {
                 if (queryFormElements[i].value === "") {
                     queryFormValues[queryFormElements[i].name] = "*"
@@ -182,7 +182,7 @@
                     queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
                 }
             }
-        } else if (tableSelector == "managerDropdown") {
+        } else if (typeSelection == "managerDropdown") {
             for (let i = 22; i <= 25; i++) {
                 if (queryFormElements[i].value === "") {
                     queryFormValues[queryFormElements[i].name] = "*"
@@ -192,12 +192,12 @@
             }
         }
         // console.log(queryFormValues)
-        conductQuery(tableSelector, queryFormValues)
+        conductQuery(typeSelection, queryFormValues)
     }
 
-    function conductQuery(tableSelector, queryFormValues) {
+    function conductQuery(typeSelection, queryFormValues) {
         // console.log(queryFormValues)
-        // console.log(tableSelector)
+        // console.log(typeSelection)
         /*
         const xhttp = new XMLHttpRequest()
         xhttp.onreadystatechange = function () {
@@ -209,7 +209,7 @@
         xhttp.open("POST", "http://localhost:3000/search", true)
         xhttp.setRequestHeader("Content-Type", "application/json")
         xhttp.send(JSON.stringify({
-            tableSelector: tableSelector,
+            typeSelection: typeSelection,
             queryFormValues: queryFormValues
         }))
         */
