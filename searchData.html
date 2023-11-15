@@ -108,7 +108,7 @@
         </div>
     </form>
 
-    <button onclick="searchQuery(), showAlert()" id="searchButton">Search</button><br>
+    <button onclick="getQuerySubmission(), showAlert()" id="searchButton">Search</button><br>
 
     <label for="queryResults">Query Results:</label><br>
     <input type="text" id="queryResults" name="queryResults" placeholder="Waiting for Query..." size="30" readonly><br>
@@ -144,8 +144,77 @@
         document.getElementById("managerDropdown").style.display = "none"
     }
 
-    function searchQuery(identifier, identifierText) {
-        return `Identifier: ${identifier};\Idnetifier Text: ${identifierText};`
+    function getQuerySubmission() {
+        // Get the values from the form section according to the dropdown selection
+        const tableSelector = document.getElementById("tableSelector").value
+        const queryForm = document.getElementById("queryForm")
+        const queryFormElements = queryForm.elements
+        const queryFormValues = {}
+        if (tableSelector == "playerDropdown") {
+            for (let i = 1; i <= 6; i++) {
+                if (queryFormElements[i].value === "") {
+                    queryFormValues[queryFormElements[i].name] = "*"
+                } else {
+                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
+                }
+            }
+        } else if (tableSelector == "participatedInDropdown") {
+            for (let i = 7; i <= 13; i++) {
+                if (queryFormElements[i].value === "") {
+                    queryFormValues[queryFormElements[i].name] = "*"
+                } else {
+                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
+                }
+            }
+        } else if (tableSelector == "matchDropdown") {
+            for (let i = 14; i <= 18; i++) {
+                if (queryFormElements[i].value === "") {
+                    queryFormValues[queryFormElements[i].name] = "*"
+                } else {
+                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
+                }
+            }
+        } else if (tableSelector == "playedInDropdown") {
+            for (let i = 19; i <= 21; i++) {
+                if (queryFormElements[i].value === "") {
+                    queryFormValues[queryFormElements[i].name] = "*"
+                } else {
+                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
+                }
+            }
+        } else if (tableSelector == "managerDropdown") {
+            for (let i = 22; i <= 25; i++) {
+                if (queryFormElements[i].value === "") {
+                    queryFormValues[queryFormElements[i].name] = "*"
+                } else {
+                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
+                }
+            }
+        }
+        // console.log(queryFormValues)
+        conductQuery(tableSelector, queryFormValues)
+    }
+
+    function conductQuery(tableSelector, queryFormValues) {
+        // console.log(queryFormValues)
+        // console.log(tableSelector)
+        /*
+        const xhttp = new XMLHttpRequest()
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // console.log(this.responseText)
+                document.getElementById("queryResults").value = this.responseText
+            }
+        }
+        xhttp.open("POST", "http://localhost:3000/search", true)
+        xhttp.setRequestHeader("Content-Type", "application/json")
+        xhttp.send(JSON.stringify({
+            tableSelector: tableSelector,
+            queryFormValues: queryFormValues
+        }))
+        */
+
+        // CONNECT TO DATABASE / CONDUCT DATABASE QUERY HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 </script>
 
