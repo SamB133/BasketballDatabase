@@ -18,49 +18,16 @@
 
 <body>
     <nav>
-        <a href="./index.html">Search</a>
+        <a href="./index.html">Home</a>
+        <a href="./searchData.html">Search</a>
         <a href="./alterData.html">Alter Data</a>
     </nav><br>
 
-    <h3>Data Search</h3>
+    <h1>Welcome</h1>
+    <h2>to our Basketball Database</h2>
+    <h3>Select one of the buttons bellow, or tabs above, to head to the appropriate page!</h3>
 
-    <form>
-        <label for="identifier">Choose an identifier to search by:</label>
-        <select name="Identifier" id="identifier">
-            <option value="id">ID</option>
-            <option value="firstName">First Name</option>
-            <option value="lastName">Last Name</option>
-            <option value="postion">Position</option>
-            <option value="birthDate">Birthdate</option>
-            <option value="team">Team</option>
-            <option value="games">Games</option>
-            <option value="minutesPlayed">Minutes Played Per Game</option>
-            <option value="assists">Assists Per Game</option>
-            <option value="blocks">Blocks Per Game</option>
-            <option value="points">Points Per Game</option>
-            <option value="passes">Passes Made</option>
-        </select>
-    </form>
-    <label for="identifierText">Search:</label>
-    <input type="text" id="identifierText" name="identifierText" placeholder="Search Text" size="30"><br><br>
-    <input type="button" value="Submit Query Request"
-        onclick="searchQuery(identifier.value, identifierText.value), showAlert()">
-    </form><br><br>
-    <label for="queryResults">Query Results:</label><br>
-    <input type="text" id="queryResults" name="queryResults" placeholder="Waiting for Query..." size="30" readonly><br>
-</body>
-
-<script>
-    function showAlert() {
-        alert("Query Sent")
-        document.getElementById("identifier").value = "id"
-        document.getElementById("identifierText").value = ""
-    }
-
-    function searchQuery(identifier, identifierText) {
-        return `Identifier: ${identifier};\Idnetifier Text: ${identifierText};`
-    }
-
-</script>
+    <button onclick="window.location.href='./searchData.html'">Search Data</button>
+    <button onclick="window.location.href='./alterData.html'">Alter Data</button>
 
 </html>
