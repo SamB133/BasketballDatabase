@@ -116,11 +116,7 @@
 
 <script>
     onload = function () {
-        document.getElementById("playerDropdown").style.display = "none"
-        document.getElementById("participatedInDropdown").style.display = "none"
-        document.getElementById("matchDropdown").style.display = "none"
-        document.getElementById("playedInDropdown").style.display = "none"
-        document.getElementById("managerDropdown").style.display = "none"
+        changeTableDropdown("default")
     }
 
     function changeTableDropdown(selection) {
@@ -137,11 +133,7 @@
         alert("Query Sent")
         const queryForm = document.getElementById("queryForm")
         queryForm.reset()
-        document.getElementById("playerDropdown").style.display = "none"
-        document.getElementById("participatedInDropdown").style.display = "none"
-        document.getElementById("matchDropdown").style.display = "none"
-        document.getElementById("playedInDropdown").style.display = "none"
-        document.getElementById("managerDropdown").style.display = "none"
+        changeTableDropdown("default")
     }
 
     function getQuerySubmission() {
