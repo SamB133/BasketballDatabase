@@ -28,8 +28,8 @@
     <form id="queryForm">
         <!-- Dropdown Selector -->
         <label for="typeSelection">Choose a search type:</label>
-        <select name="TypeSelection" id="typeSelection" onchange="changeTableDropdown(this.value)">
-            <option value="default" selected disabled hidden>Choose Type</option>
+        <select name="TypeSelection" id="typeSelection" onchange="changeTableDropdown()">
+            <option value="default">Choose Type</option>
             <option value="playerDropdown">Player</option>
             <option value="participatedInDropdown">Participated In</option>
             <option value="matchDropdown">Match</option>
@@ -113,101 +113,5 @@
     <label for="queryResults">Query Results:</label><br>
     <input type="text" id="queryResults" name="queryResults" placeholder="Waiting for Query..." size="30" readonly><br>
 </body>
-
-<script>
-    onload = function () {
-        changeTableDropdown("default")
-    }
-
-    function changeTableDropdown(selection) {
-        // Only show the div for the selected dropdown
-        document.getElementById("playerDropdown").style.display = "none"
-        document.getElementById("participatedInDropdown").style.display = "none"
-        document.getElementById("matchDropdown").style.display = "none"
-        document.getElementById("playedInDropdown").style.display = "none"
-        document.getElementById("managerDropdown").style.display = "none"
-        document.getElementById(`${selection}`).style.display = "block"
-    }
-
-    function showAlert() {
-        alert("Query Sent")
-        const queryForm = document.getElementById("queryForm")
-        queryForm.reset()
-        changeTableDropdown("default")
-    }
-
-    function getQuerySubmission() {
-        // Get the values from the form section according to the dropdown selection
-        const typeSelection = document.getElementById("typeSelection").value
-        const queryForm = document.getElementById("queryForm")
-        const queryFormElements = queryForm.elements
-        const queryFormValues = {}
-        if (typeSelection == "playerDropdown") {
-            for (let i = 1; i <= 6; i++) {
-                if (queryFormElements[i].value === "") {
-                    queryFormValues[queryFormElements[i].name] = "*"
-                } else {
-                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
-                }
-            }
-        } else if (typeSelection == "participatedInDropdown") {
-            for (let i = 7; i <= 13; i++) {
-                if (queryFormElements[i].value === "") {
-                    queryFormValues[queryFormElements[i].name] = "*"
-                } else {
-                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
-                }
-            }
-        } else if (typeSelection == "matchDropdown") {
-            for (let i = 14; i <= 18; i++) {
-                if (queryFormElements[i].value === "") {
-                    queryFormValues[queryFormElements[i].name] = "*"
-                } else {
-                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
-                }
-            }
-        } else if (typeSelection == "playedInDropdown") {
-            for (let i = 19; i <= 21; i++) {
-                if (queryFormElements[i].value === "") {
-                    queryFormValues[queryFormElements[i].name] = "*"
-                } else {
-                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
-                }
-            }
-        } else if (typeSelection == "managerDropdown") {
-            for (let i = 22; i <= 25; i++) {
-                if (queryFormElements[i].value === "") {
-                    queryFormValues[queryFormElements[i].name] = "*"
-                } else {
-                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
-                }
-            }
-        }
-        // console.log(queryFormValues)
-        conductQuery(typeSelection, queryFormValues)
-    }
-
-    function conductQuery(typeSelection, queryFormValues) {
-        // console.log(queryFormValues)
-        // console.log(typeSelection)
-        /*
-        const xhttp = new XMLHttpRequest()
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                // console.log(this.responseText)
-                document.getElementById("queryResults").value = this.responseText
-            }
-        }
-        xhttp.open("POST", "http://localhost:3000/search", true)
-        xhttp.setRequestHeader("Content-Type", "application/json")
-        xhttp.send(JSON.stringify({
-            typeSelection: typeSelection,
-            queryFormValues: queryFormValues
-        }))
-        */
-
-        // CONNECT TO DATABASE / CONDUCT DATABASE QUERY HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    }
-</script>
-
+    <script src="query.js"></script>
 </html>
