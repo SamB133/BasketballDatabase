@@ -22,3 +22,8 @@ connection.connect((error) => {
     // close the MySQL connection
     connection.end();
 });
+
+// select
+// update
+// insert
+// delete
