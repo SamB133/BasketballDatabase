@@ -1,4 +1,3 @@
-
 // global constants
 const playerColCount = 6
 const participatedInColCount = 7
@@ -49,23 +48,36 @@ const colNames = [
     "birthday"
 ]
 
-onload = function () {
-    changeTableDropdown()
-}
-
-function changeTableDropdown() {
-  document.getElementById("playerDropdown").style.display = typeSelection.value == "playerDropdown" ? "block" : "none"
-  document.getElementById("matchDropdown").style.display = typeSelection.value == "matchDropdown" ? "block" : "none"
-  document.getElementById("participatedInDropdown").style.display = typeSelection.value == "participatedInDropdown" ? "block" : "none"
-  document.getElementById("playedInDropdown").style.display = typeSelection.value == "playedInDropdown" ? "block" : "none"
-  document.getElementById("managerDropdown").style.display = typeSelection.value == "managerDropdown" ? "block" : "none"
-} 
-
-function showAlert() {
-    alert("Query Sent")
-    const queryForm = document.getElementById("queryForm")
-    queryForm.reset()
-    changeTableDropdown("default")
+function conductQuery(tableSelection, tableStartIndex, tableColCount, queryFormValues, enteredValCount) {
+    let queryString = "SELECT "
+    if (enteredValCount != 0) {
+        let temp = enteredValCount
+        for (let i = tableStartIndex; i < tableStartIndex + tableColCount; i++) {
+            if (queryFormValues[i] != "") {
+                queryString += colNames[i - 1]
+                temp--
+                if (temp > 0)
+                    queryString += ", "
+            }
+        }
+    }
+    else {
+        queryString += "*"
+    }
+    if (tableSelection != "")
+        queryString += " FROM " + tableSelection
+    if (enteredValCount != 0) {
+        let temp = enteredValCount
+        queryString += " WHERE "
+        for (let i = tableStartIndex; i < tableStartIndex + tableColCount; i++) {
+            if (queryFormValues[i] != "") {
+                queryString += colNames[i - 1] + " = " + queryFormValues[i]
+                temp--
+                if (temp > 0)
+                    queryString += " AND "
+            }
+        }
+    }
 }
 
 function getQuerySubmission() {
@@ -138,58 +150,9 @@ function getQuerySubmission() {
             }
         }
     }
-    conductQuery(tableSelection, tableStartIndex, tableColCount, queryFormValues, enteredValCount)
+    //NOT SURE ABOUT THIS CHECK IT OUT
+    (function() {
+        var query = conductQuery(tableSelection, tableStartIndex, tableColCount, queryFormValues, enteredValCount);
+        window.query = query;
+    })();
 }
-
-function conductQuery(tableSelection, tableStartIndex, tableColCount, queryFormValues, enteredValCount) {
-
-    // create a new MySQL connection
-    const conn = createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'project4347'
-    });
-  
-    // establish connection to database
-    conn.connect(function (error) {
-        if (error) {
-            console.error('Error connecting to MySQL database:', error);
-        }
-        else {
-            // create query string
-            let queryString = "SELECT "
-            if (enteredValCount != 0) {
-                let temp = enteredValCount
-                for (let i = tableStartIndex; i < tableStartIndex + tableColCount; i++) {
-                    if (queryFormValues[i] != "") {
-                        queryString += colNames[i - 1]
-                        temp--
-                        if (temp > 0)
-                            queryString += ", "
-                    }
-                }
-            }
-            else {
-                queryString += "*"
-            }
-            if (tableSelection != "")
-                queryString += " FROM " + tableSelection
-            if (enteredValCount != 0) {
-                let temp = enteredValCount
-                queryString += " WHERE "
-                for (let i = tableStartIndex; i < tableStartIndex + tableColCount; i++) {
-                    if (queryFormValues[i] != "") {
-                        queryString += colNames[i - 1] + " = " + queryFormValues[i]
-                        temp--
-                        if (temp > 0)
-                            queryString += " AND "
-                    }
-                }
-            }
-        }
-        conn.query(queryString, function (error, result, fields) {
-            if (error) throw error;
-            console.log(result);
-        });
-    });}

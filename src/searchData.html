@@ -113,5 +113,26 @@
     <label for="queryResults">Query Results:</label><br>
     <input type="text" id="queryResults" name="queryResults" placeholder="Waiting for Query..." size="30" readonly><br>
 </body>
-    <script src="query.js"></script>
+    <script>
+        onload = function () {
+            changeTableDropdown()
+        }
+        
+        function changeTableDropdown() {
+          document.getElementById("playerDropdown").style.display = typeSelection.value == "playerDropdown" ? "block" : "none"
+          document.getElementById("matchDropdown").style.display = typeSelection.value == "matchDropdown" ? "block" : "none"
+          document.getElementById("participatedInDropdown").style.display = typeSelection.value == "participatedInDropdown" ? "block" : "none"
+          document.getElementById("playedInDropdown").style.display = typeSelection.value == "playedInDropdown" ? "block" : "none"
+          document.getElementById("managerDropdown").style.display = typeSelection.value == "managerDropdown" ? "block" : "none"
+        } 
+        
+        function showAlert() {
+            alert("Query Sent")
+            const queryForm = document.getElementById("queryForm")
+            queryForm.reset()
+            changeTableDropdown("default")
+        }
+    </script>
+    <script type="module" src="../config/databaseConfig.js"></script>
+    <script type="module" src="../config/controller.js"></script>
 </html>
