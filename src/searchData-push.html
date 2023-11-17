@@ -254,10 +254,11 @@
                 }
             }
         }
-        conductQuery(tableSelection, tableColCount, queryFormValues, enteredValCount)
+        conductQuery(tableSelection, tableStartIndex, tableColCount, queryFormValues, enteredValCount)
     }
 
-    function conductQuery(tableSelection, tableColCount, queryFormValues, enteredValCount) {
+    function conductQuery(tableSelection, tableStartIndex, tableColCount, queryFormValues, enteredValCount) {
+/*
         var mysql = require('mysql');
 
         var conn = mysql.createConnection({ host: "localhost", user: "root", password: "", database: "project4347" });
@@ -267,6 +268,7 @@
             if (error) {
                 console.error('Error connecting to MySQL database:', error);
             } else {
+*/
                 // create query string
                 let queryString = "SELECT "
                 if (enteredValCount != 0) {
@@ -299,7 +301,7 @@
                 }
 
                 console.log(queryString); // FOR TESTING/DEVELOPEMENT PURPOSES, DELETE BEFORE FINALIZATION
-
+/*
                 // run query on database
                 con.query(queryString, function (error, result, fields) {
                     if (error) throw error;
@@ -310,6 +312,7 @@
                 connection.end();
             }
         });
+*/
     }
 </script>
 
