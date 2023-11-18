@@ -4,6 +4,8 @@ import { connection } from './db.js';
 const app = express()
 const port = 3000
 
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
     connection.query('SELECT * FROM player', function (error, results, fields) {
         if (error) throw error;
