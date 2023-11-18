@@ -1,4 +1,4 @@
-import { createConnection } from 'mysql';
+import createConnection from '../node_modules/mysql2/promise.js';
 
 config = {
    host: 'localhost',
@@ -6,7 +6,8 @@ config = {
    password: 'placeholder',
    database: 'placeholder'
 }
-var connection = createConnection(config); //added the line
+var connection = createConnection(config);
+
 connection.connect(function(err){
   if (err){
     console.log('error connecting:' + err.stack);
@@ -14,4 +15,4 @@ connection.connect(function(err){
   console.log('connected successfully to DB.');
 });
 
-export const conn = createConnection(config); 
+export { connection };
