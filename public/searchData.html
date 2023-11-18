@@ -28,8 +28,8 @@
     <form id="queryForm">
         <!-- Dropdown Selector -->
         <label for="typeSelection">Choose a search type:</label>
-        <select name="TypeSelection" id="typeSelection" onchange="changeTableDropdown(this.value)">
-            <option value="default" selected disabled hidden>Choose Type</option>
+        <select name="TypeSelection" id="typeSelection" onchange="changeTableDropdown()">
+            <option value="default">Choose Type</option>
             <option value="playerDropdown">Player</option>
             <option value="participatedInDropdown">Participated In</option>
             <option value="matchDropdown">Match</option>
@@ -132,59 +132,8 @@
         queryForm.reset()
         changeTableDropdown("default")
     }
-
-    function getQuerySubmission() {
-        // Get the values from the form section according to the dropdown selection
-        const taskSelector = document.getElementById("taskSelector").value
-        const tableSelector = document.getElementById("tableSelector").value
-        const alteringForm = document.getElementById("alteringForm")
-        const alteringFormElements = alteringForm.elements
-        const alteringFormValues = {}
-        if (tableSelector == "playerDropdown") {
-            for (let i = 1; i <= 6; i++) {
-                if (alteringFormElements[i].value === "") {
-                    alteringFormValues[alteringFormElements[i].name] = "*"
-                } else {
-                    alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-                }
-            }
-        } else if (tableSelector == "participatedInDropdown") {
-            for (let i = 7; i <= 13; i++) {
-                if (alteringFormElements[i].value === "") {
-                    alteringFormValues[alteringFormElements[i].name] = "*"
-                } else {
-                    alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-                }
-            }
-        } else if (tableSelector == "matchDropdown") {
-            for (let i = 14; i <= 18; i++) {
-                if (alteringFormElements[i].value === "") {
-                    alteringFormValues[alteringFormElements[i].name] = "*"
-                } else {
-                    alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-                }
-            }
-        } else if (tableSelector == "playedInDropdown") {
-            for (let i = 19; i <= 21; i++) {
-                if (alteringFormElements[i].value === "") {
-                    alteringFormValues[alteringFormElements[i].name] = "*"
-                } else {
-                    alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-                }
-            }
-        } else if (tableSelector == "managerDropdown") {
-            for (let i = 22; i <= 26; i++) {
-                if (alteringFormElements[i].value === "") {
-                    alteringFormValues[alteringFormElements[i].name] = "*"
-                } else {
-                    alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-                }
-            }
-        }
-        // console.log(alteringFormValues)
-        conductTask(taskSelector, tableSelector, alteringFormValues)
-    }
 </script>
-
+<script type="module" src="../config/databaseConfig.js"></script>
+<script type="module" src="../config/controller.js"></script>
 
 </html>

@@ -4,6 +4,7 @@ show tables;
 
 create table team(
 	teamName varchar(255),
+	teamID int not null,
 	constraint PK_teamName primary key (teamName)
 );
 
@@ -24,7 +25,7 @@ create table player(
 	lName varchar(255),
 	birthday date,
 	position varchar(20),
-	tName varchar(20),
+	tName varchar(255),
 	constraint PK_player primary key (playerID),
 	constraint FK_player foreign key (tName) references team(teamName)
 	on delete cascade on update cascade
@@ -47,9 +48,9 @@ create table participatedIn(
 	minutesPlayed int,
 	pointScored int,
 	passesMade int,
-	constraint PK_partecipatedIn primary key (playerID,matchNum),
-	constraint FK_partecipatedIn_id foreign key (playerID) references player(playerID),
-	constraint FK_partecipatedIn_matchNum foreign key (matchNum) references match_(matchNum)
+	constraint PK_participatedIn primary key (playerID,matchNum),
+	constraint FK_participatedIn_id foreign key (playerID) references player(playerID),
+	constraint FK_participatedIn_matchNum foreign key (matchNum) references match_(matchNum)
 	on delete cascade on update cascade
 );
 
