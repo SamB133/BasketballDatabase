@@ -1,10 +1,10 @@
 import { createConnection } from 'mysql2';
 
 let config = {
-  host: 'localhost',
+  host: '127.0.0.1',
   user: 'root',
-  password: '',
-  database: 'placeholder'
+  password: 'password',
+  database: 'project4347'
 }
 export let connection = createConnection(config);
 

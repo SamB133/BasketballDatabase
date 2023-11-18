@@ -5,9 +5,10 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-    connection.query('SELECT * FROM Players', function (error, results, fields) {
+    connection.query('SELECT * FROM player', function (error, results, fields) {
         if (error) throw error;
-        res.send('The solution is: ', results);
+        console.log(results);
+        res.send(results);
     });
 })
 
