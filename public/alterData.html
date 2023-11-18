@@ -52,15 +52,15 @@
             <label for="playerID">Player ID</label>
             <input type="text" id="playerID" name="playerID" placeholder="Player ID" size="30"><br>
             <label for="Fname">First Name</label>
-            <input type="text" id="Fname" name="Fname" placeholder="First Name" size="30"><br>
+            <input type="text" id="fName" name="Fname" placeholder="First Name" size="30"><br>
             <label for="Lname">Last Name</label>
-            <input type="text" id="Lname" name="Lname" placeholder="Last Name" size="30"><br>
+            <input type="text" id="lName" name="Lname" placeholder="Last Name" size="30"><br>
             <label for="birthday">Birthday (mm/dd/yyyy)</label>
             <input type="text" id="birthday" name="birthday" placeholder="Birthday" size="30"><br>
             <label for="position">Position</label>
             <input type="text" id="position" name="position" placeholder="Position" size="30"><br>
             <label for="Tname">Team Name</label>
-            <input type="text" id="Tname" name="Tname" placeholder="Team Name" size="30"><br>
+            <input type="text" id="tName" name="Tname" placeholder="Team Name" size="30"><br>
         </div>
 
         <!-- If 'Participated In' is selected -->
@@ -98,7 +98,7 @@
         <!-- If 'Played In' is selected -->
         <div id="playedInDropdown">
             <label for="mNum">Match Number</label>
-            <input type="text" id="mNum" name="mNum" placeholder="Match Number" size="30"><br>
+            <input type="text" id="Mnum" name="mNum" placeholder="Match Number" size="30"><br>
             <label for="homeTeam">Home Team</label>
             <input type="text" id="homeTeam" name="homeTeam" placeholder="Home Team" size="30"><br>
             <label for="awayTeam">Away Team</label>
@@ -107,24 +107,24 @@
 
         <!-- If 'Team' is selected -->
         <div id="teamDropdown">
-            <label for="Tname">Team Name</label>
+            <label for="teamName">Team Name</label>
             <input type="text" id="Tname" name="Tname" placeholder="Team Name" size="30"><br>
         </div>
 
         <!-- If 'Manager' is selected -->
         <div id="managerDropdown">
-            <label for="Tname">Team Name</label>
+            <label for="tName">Team Name</label>
             <input type="text" id="Tname" name="Tname" placeholder="Team Name" size="30"><br>
-            <label for="Fname">First Name</label>
+            <label for="fName">First Name</label>
             <input type="text" id="Fname" name="Fname" placeholder="First Name" size="30"><br>
-            <label for="Lname">Last Name</label>
+            <label for="lName">Last Name</label>
             <input type="text" id="Lname" name="Lname" placeholder="Last Name" size="30"><br>
             <label for="birthday">Birthday (mm/dd/yyyy)</label>
             <input type="text" id="birthday" name="birthday" placeholder="Birthday" size="30"><br>
         </div>
     </form>
 
-    <button onclick="getSubmission(), showAlert()" id="submitButton">Submit</button><br>
+    <button onclick="getSubmission(), resetForm()" id="submitButton">Submit</button><br>
 </body>
 
 <script>
@@ -143,8 +143,7 @@
         document.getElementById(`${selection}`).style.display = "block"
     }
 
-    function showAlert() {
-        alert("Alterations Sent")
+    function resetForm() {
         const alteringForm = document.getElementById("alteringForm")
         alteringForm.reset()
         changeTableDropdown("default")
