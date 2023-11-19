@@ -12,7 +12,6 @@ app.get('/api/:table', (req, res) => {
     if (!tables.includes(req.params.table)) {
         return res.status(404).send('Table not found');
     }
-    //console.log(req.query);
     const where = Object.keys(req.query)
         .filter(key => req.query[key] !== '*')
         .map(key =>
@@ -21,30 +20,31 @@ app.get('/api/:table', (req, res) => {
 
     connection.query('SELECT * FROM ' + req.params.table + ' WHERE TRUE AND ' + where, function (error, results, fields) {
         if (error) throw error;
-        //console.log(results);
         res.send(results);
     });
 })
 
-app.post('/api/{table}', (req, res) => {
-    // TODO: Implement
+app.post('/api/:table', (req, res) => {
     if (!tables.includes(req.params.table)) {
         return res.status(404).send('Table not found');
     }
-    //console.log(req.query);
+    const set = Object.keys(req.query)
+        .filter(key => req.query[key] !== '*')
+        .map(key =>
+            `${key} = '${req.query[key]}'`
+        ).join(', ');
 
-    connection.query('INSERT INTO ' + req.params.table + ' SET ?', req.query, function (error, results, fields) {
+    connection.query('INSERT INTO ' + req.params.table + ' SET ' + set, req.query, function (error, results, fields) {
         if (error) throw error;
-        // console.log(results);
         res.send(results);
     });
 })
 
-app.patch('/api/{table}', (req, res) => {
+app.patch('/api/:table', (req, res) => {
     // TODO: Implement
 })
 
-app.delete('/api/{table}', (req, res) => {
+app.delete('/api/:table', (req, res) => {
     // TODO: Implement
 })
 
