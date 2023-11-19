@@ -7,7 +7,7 @@ const port = 3000
 app.use(express.static('public'))
 
 const tables = ['player', 'participatedIn', 'match_', 'playedIn', 'manager']
-const idColumns = ['playerID']
+const idColumns = ['playerID', 'teamID', 'matchNum', 'managerID']
 
 app.get('/api/:table', (req, res) => {
     if (!tables.includes(req.params.table)) {
@@ -20,7 +20,7 @@ app.get('/api/:table', (req, res) => {
             `${key} LIKE '%${req.query[key]}%'`
         ).join(' AND ');
 
-    connection.query('SELECT * FROM ' + req.params.table + ' WHERE TRUE AND ' + where, function (error, results, fields) {
+    connection.query(`SELECT * FROM ${req.params.table} ${where === '' ? '' : 'WHERE'} ${where}`, function (error, results, fields) {
         if (error) throw error;
         res.send(results);
     });
@@ -47,8 +47,8 @@ app.patch('/api/:table', (req, res) => {
     if (!tables.includes(req.params.table)) {
         return res.status(404).send('Table not found');
     }
-    if (!req.query.playerID) {
-        return res.status(400).send('playerID not found');
+    if (!Object.keys(req.query).some(key => idColumns.includes(key))) {
+        return res.status(400).send('ID value not found');
     }
 
     const where = Object.keys(req.query)
@@ -82,7 +82,7 @@ app.delete('/api/:table', (req, res) => {
             `${key} = '${req.query[key]}'`
         ).join(' AND ');
 
-    connection.query('DELETE FROM ' + req.params.table + ' WHERE TRUE AND ' + where, function (error, results, fields) {
+    connection.query('DELETE FROM ' + req.params.table + ' WHERE ' + where, function (error, results, fields) {
         if (error) throw error;
         res.send(results);
     });
