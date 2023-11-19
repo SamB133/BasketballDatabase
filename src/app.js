@@ -45,7 +45,20 @@ app.patch('/api/:table', (req, res) => {
 })
 
 app.delete('/api/:table', (req, res) => {
-    // TODO: Implement
+    if (!tables.includes(req.params.table)) {
+        return res.status(404).send('Table not found');
+    }
+
+    const where = Object.keys(req.query)
+        .filter(key => req.query[key] !== '*')
+        .map(key =>
+            `${key} = '${req.query[key]}'`
+        ).join(' AND ');
+
+    connection.query('DELETE FROM ' + req.params.table + ' WHERE TRUE AND ' + where, function (error, results, fields) {
+        if (error) throw error;
+        res.send(results);
+    });
 })
 
 app.listen(port, () => {
