@@ -26,27 +26,27 @@
     <h3>Data Search</h3>
 
     <form id="queryForm">
-        <!-- Dropdown Selector -->
+        <!--  Selector -->
         <label for="typeSelection">Choose a search type:</label>
-        <select name="TypeSelection" id="typeSelection" onchange="changeTableDropdown()">
+        <select name="TypeSelection" id="typeSelection" onchange="changeTable()">
             <option value="default">Choose Type</option>
-            <option value="playerDropdown">Player</option>
-            <option value="participatedInDropdown">Participated In</option>
-            <option value="matchDropdown">Match</option>
-            <option value="playedInDropdown">Played In</option>
-            <option value="managerDropdown">Manager</option>
+            <option value="player">Player</option>
+            <option value="participatedIn">Participated In</option>
+            <option value="match">Match</option>
+            <option value="playedIn">Played In</option>
+            <option value="manager">Manager</option>
         </select>
 
         <!-- If 'Player' is selected -->
-        <div id="playerDropdown">
+        <div id="player">
             <label for="playerID">Player ID</label>
             <input type="text" id="playerID" name="playerID" placeholder="Player ID" size="30"><br>
             <label for="Fname">First Name</label>
             <input type="text" id="fName" name="Fname" placeholder="First Name" size="30"><br>
             <label for="Lname">Last Name</label>
             <input type="text" id="lName" name="Lname" placeholder="Last Name" size="30"><br>
-            <label for="birthday">Birthday (mm/dd/yyyy)</label>
-            <input type="text" id="birthday" name="birthday" placeholder="Birthday" size="30"><br>
+            <label for="birthday">Birthday (yyyy-mm-dd)</label>
+            <input type="text" id="birthday" name="birthday" placeholder="yyyy-mm-dd" size="30"><br>
             <label for="position">Position</label>
             <input type="text" id="position" name="position" placeholder="Position" size="30"><br>
             <label for="Tname">Team Name</label>
@@ -54,7 +54,7 @@
         </div>
 
         <!-- If 'Participated In' is selected -->
-        <div id="participatedInDropdown">
+        <div id="participatedIn">
             <label for="playerID">Player ID</label>
             <input type="text" id="playerID" name="playerID" placeholder="Player ID" size="30"><br>
             <label for="matchNum">Match Number</label>
@@ -72,7 +72,7 @@
         </div>
 
         <!-- If 'Match' is selected -->
-        <div id="matchDropdown">
+        <div id="match">
             <label for="matchNum">Match Number</label>
             <input type="text" id="matchNum" name="matchNum" placeholder="Match Number" size="30"><br>
             <label for="time">Time</label>
@@ -86,7 +86,7 @@
         </div>
 
         <!-- If 'Played In' is selected -->
-        <div id="playedInDropdown">
+        <div id="playedIn">
             <label for="Mnum">Match Number</label>
             <input type="text" id="mNum" name="mNum" placeholder="Match Number" size="30"><br>
             <label for="homeTeam">Home Team</label>
@@ -96,15 +96,15 @@
         </div>
 
         <!-- If 'Manager' is selected -->
-        <div id="managerDropdown">
+        <div id="manager">
             <label for="tName">Team Name</label>
             <input type="text" id="Tname" name="Tname" placeholder="Team Name" size="30"><br>
             <label for="fName">First Name</label>
             <input type="text" id="Fname" name="Fname" placeholder="First Name" size="30"><br>
             <label for="lName">Last Name</label>
             <input type="text" id="Lname" name="Lname" placeholder="Last Name" size="30"><br>
-            <label for="birthday">Birthday (mm/dd/yyyy)</label>
-            <input type="text" id="birthday" name="birthday" placeholder="Birthday" size="30"><br>
+            <label for="birthday">Birthday (yyyy-mm-dd)</label>
+            <input type="text" id="birthday" name="birthday" placeholder="yyyy-mm-dd" size="30"><br>
         </div>
     </form>
 
@@ -115,77 +115,41 @@
 </body>
 <script>
     onload = function () {
-        changeTableDropdown()
+        changeTable()
     }
 
-    function changeTableDropdown() {
-        document.getElementById("playerDropdown").style.display = typeSelection.value == "playerDropdown" ? "block" : "none"
-        document.getElementById("matchDropdown").style.display = typeSelection.value == "matchDropdown" ? "block" : "none"
-        document.getElementById("participatedInDropdown").style.display = typeSelection.value == "participatedInDropdown" ? "block" : "none"
-        document.getElementById("playedInDropdown").style.display = typeSelection.value == "playedInDropdown" ? "block" : "none"
-        document.getElementById("managerDropdown").style.display = typeSelection.value == "managerDropdown" ? "block" : "none"
+    function changeTable() {
+        document.getElementById("player").style.display = typeSelection.value == "player" ? "block" : "none"
+        document.getElementById("match").style.display = typeSelection.value == "match" ? "block" : "none"
+        document.getElementById("participatedIn").style.display = typeSelection.value == "participatedIn" ? "block" : "none"
+        document.getElementById("playedIn").style.display = typeSelection.value == "playedIn" ? "block" : "none"
+        document.getElementById("manager").style.display = typeSelection.value == "manager" ? "block" : "none"
     }
 
     function resetForm() {
         const queryForm = document.getElementById("queryForm")
         queryForm.reset()
-        changeTableDropdown("default")
+        changeTable("default")
     }
 
     async function getQuerySubmission() {
         // Get the values from the form section according to the dropdown selection
         const typeSelection = document.getElementById("typeSelection").value
-        const queryForm = document.getElementById("queryForm")
-        const queryFormElements = queryForm.elements
+
+        const inputs = Array.from(document.getElementById(typeSelection).children).filter(node => node.nodeName == "INPUT")
         const queryFormValues = {}
-        let url;
-        if (typeSelection == "playerDropdown") {
-            url = "/api/player"
-            for (let i = 1; i <= 6; i++) {
-                if (queryFormElements[i].value === "") {
-                    queryFormValues[queryFormElements[i].name] = "*"
-                } else {
-                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
-                }
-            }
-        } else if (typeSelection == "participatedInDropdown") {
-            url = "/api/participatedIn"
-            for (let i = 7; i <= 13; i++) {
-                if (queryFormElements[i].value === "") {
-                    queryFormValues[queryFormElements[i].name] = "*"
-                } else {
-                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
-                }
-            }
-        } else if (typeSelection == "matchDropdown") {
-            url = "/api/match"
-            for (let i = 14; i <= 18; i++) {
-                if (queryFormElements[i].value === "") {
-                    queryFormValues[queryFormElements[i].name] = "*"
-                } else {
-                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
-                }
-            }
-        } else if (typeSelection == "playedInDropdown") {
-            url = "/api/playedIn"
-            for (let i = 19; i <= 21; i++) {
-                if (queryFormElements[i].value === "") {
-                    queryFormValues[queryFormElements[i].name] = "*"
-                } else {
-                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
-                }
-            }
-        } else if (typeSelection == "managerDropdown") {
-            url = "/api/manager"
-            for (let i = 22; i <= 25; i++) {
-                if (queryFormElements[i].value === "") {
-                    queryFormValues[queryFormElements[i].name] = "*"
-                } else {
-                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
-                }
+        let url = `/api/${typeSelection}`;
+
+        for (let input of inputs) {
+            if (input.value === "") {
+                queryFormValues[input.name] = "*"
+            } else {
+                queryFormValues[input.name] = input.value
             }
         }
-        // console.log(queryFormValues)
+
+        console.log(queryFormValues)
+        console.log(url)
         let res = await fetch(url + '?' + new URLSearchParams(queryFormValues))
         let data = await res.json()
         console.log(data)

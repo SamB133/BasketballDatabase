@@ -26,37 +26,37 @@
     <h3>Data Alterations</h3>
 
     <form id="alteringForm">
-        <!-- Task Dropdown Selector -->
+        <!-- Task  Selector -->
         <label for="taskSelector">Choose the task type you wish to conduct:</label>
-        <select name="TaskSelector" id="taskSelector" onchange="changeTableDropdown(this.value)">
+        <select name="TaskSelector" id="taskSelector">
             <option value="default" selected disabled hidden>Choose Task</option>
-            <option value="createDropdown">Create</option>
-            <option value="updateDropdown">Update</option>
-            <option value="deleteDropdown">Delete</option>
+            <option value="POST">Create</option>
+            <option value="PATCH">Update</option>
+            <option value="DELETE">Delete</option>
         </select><br>
 
-        <!-- Table Dropdown Selector -->
+        <!-- Table  Selector -->
         <label for="tableSelector">Choose the table you want to modify:</label>
-        <select name="TableSelector" id="tableSelector" onchange="changeTableDropdown(this.value)">
+        <select name="TableSelector" id="tableSelector" onchange="changeTable(this.value)">
             <option value="default" selected disabled hidden>Choose Table</option>
-            <option value="playerDropdown">Player</option>
-            <option value="participatedInDropdown">ParticipatedIn</option>
-            <option value="matchDropdown">Match</option>
-            <option value="playedInDropdown">PlayedIn</option>
-            <option value="teamDropdown">Team</option>
-            <option value="managerDropdown">Manager</option>
+            <option value="player">Player</option>
+            <option value="participatedIn">ParticipatedIn</option>
+            <option value="match">Match</option>
+            <option value="playedIn">PlayedIn</option>
+            <option value="team">Team</option>
+            <option value="manager">Manager</option>
         </select>
 
         <!-- If 'Player' is selected -->
-        <div id="playerDropdown">
+        <div id="player">
             <label for="playerID">Player ID</label>
             <input type="text" id="playerID" name="playerID" placeholder="Player ID" size="30"><br>
             <label for="Fname">First Name</label>
             <input type="text" id="fName" name="Fname" placeholder="First Name" size="30"><br>
             <label for="Lname">Last Name</label>
             <input type="text" id="lName" name="Lname" placeholder="Last Name" size="30"><br>
-            <label for="birthday">Birthday (mm/dd/yyyy)</label>
-            <input type="text" id="birthday" name="birthday" placeholder="Birthday" size="30"><br>
+            <label for="birthday">Birthday (yyyy-mm-dd)</label>
+            <input type="text" id="birthday" name="birthday" placeholder="yyyy-mm-dd" size="30"><br>
             <label for="position">Position</label>
             <input type="text" id="position" name="position" placeholder="Position" size="30"><br>
             <label for="Tname">Team Name</label>
@@ -64,7 +64,7 @@
         </div>
 
         <!-- If 'Participated In' is selected -->
-        <div id="participatedInDropdown">
+        <div id="participatedIn">
             <label for="playerID">Player ID</label>
             <input type="text" id="playerID" name="playerID" placeholder="Player ID" size="30"><br>
             <label for="matchNum">Match Number</label>
@@ -82,7 +82,7 @@
         </div>
 
         <!-- If 'Match' is selected -->
-        <div id="matchDropdown">
+        <div id="match">
             <label for="matchNum">Match Number</label>
             <input type="text" id="matchNum" name="matchNum" placeholder="Match Number" size="30"><br>
             <label for="time">Time</label>
@@ -96,7 +96,7 @@
         </div>
 
         <!-- If 'Played In' is selected -->
-        <div id="playedInDropdown">
+        <div id="playedIn">
             <label for="mNum">Match Number</label>
             <input type="text" id="Mnum" name="mNum" placeholder="Match Number" size="30"><br>
             <label for="homeTeam">Home Team</label>
@@ -106,21 +106,21 @@
         </div>
 
         <!-- If 'Team' is selected -->
-        <div id="teamDropdown">
+        <div id="team">
             <label for="teamName">Team Name</label>
-            <input type="text" id="Tname" name="Tname" placeholder="Team Name" size="30"><br>
+            <input type="text" id="tName" name="Tname" placeholder="Team Name" size="30"><br>
         </div>
 
         <!-- If 'Manager' is selected -->
-        <div id="managerDropdown">
+        <div id="manager">
             <label for="tName">Team Name</label>
-            <input type="text" id="Tname" name="Tname" placeholder="Team Name" size="30"><br>
+            <input type="text" id="tName" name="Tname" placeholder="Team Name" size="30"><br>
             <label for="fName">First Name</label>
-            <input type="text" id="Fname" name="Fname" placeholder="First Name" size="30"><br>
+            <input type="text" id="fName" name="Fname" placeholder="First Name" size="30"><br>
             <label for="lName">Last Name</label>
-            <input type="text" id="Lname" name="Lname" placeholder="Last Name" size="30"><br>
-            <label for="birthday">Birthday (mm/dd/yyyy)</label>
-            <input type="text" id="birthday" name="birthday" placeholder="Birthday" size="30"><br>
+            <input type="text" id="lName" name="Lname" placeholder="Last Name" size="30"><br>
+            <label for="birthday">Birthday (yyyy-mm-dd)</label>
+            <input type="text" id="birthday" name="birthday" placeholder="yyyy-mm-dd" size="30"><br>
         </div>
     </form>
 
@@ -129,87 +129,49 @@
 
 <script>
     onload = function () {
-        changeTableDropdown("default")
+        changeTable()
     }
 
-    function changeTableDropdown(selection) {
+    function changeTable(selection) {
         // Only show the div for the selected dropdown
-        document.getElementById("playerDropdown").style.display = "none"
-        document.getElementById("participatedInDropdown").style.display = "none"
-        document.getElementById("matchDropdown").style.display = "none"
-        document.getElementById("playedInDropdown").style.display = "none"
-        document.getElementById("teamDropdown").style.display = "none"
-        document.getElementById("managerDropdown").style.display = "none"
-        document.getElementById(`${selection}`).style.display = "block"
+        document.getElementById("player").style.display = tableSelector.value == "player" ? "block" : "none"
+        document.getElementById("match").style.display = tableSelector.value == "match" ? "block" : "none"
+        document.getElementById("participatedIn").style.display = tableSelector.value == "participatedIn" ? "block" : "none"
+        document.getElementById("playedIn").style.display = tableSelector.value == "playedIn" ? "block" : "none"
+        document.getElementById("team").style.display = tableSelector.value == "team" ? "block" : "none"
+        document.getElementById("manager").style.display = tableSelector.value == "manager" ? "block" : "none"
     }
 
     function resetForm() {
         const alteringForm = document.getElementById("alteringForm")
         alteringForm.reset()
-        changeTableDropdown("default")
+        changeTable("default")
     }
 
-    function getSubmission() {
+    async function getSubmission() {
         // Get the values from the form section according to the dropdown selection
         const taskSelector = document.getElementById("taskSelector").value
         const tableSelector = document.getElementById("tableSelector").value
-        const alteringForm = document.getElementById("alteringForm")
-        const alteringFormElements = alteringForm.elements
+        const inputs = Array.from(document.getElementById(tableSelector).children).filter(node => node.nodeName == "INPUT")
+        console.log(inputs)
         const alteringFormValues = {}
-        if (tableSelector == "playerDropdown") {
-            for (let i = 1; i <= 6; i++) {
-                if (alteringFormElements[i].value === "") {
-                    alteringFormValues[alteringFormElements[i].name] = "*"
-                } else {
-                    alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-                }
-            }
-        } else if (tableSelector == "participatedInDropdown") {
-            for (let i = 7; i <= 13; i++) {
-                if (alteringFormElements[i].value === "") {
-                    alteringFormValues[alteringFormElements[i].name] = "*"
-                } else {
-                    alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-                }
-            }
-        } else if (tableSelector == "matchDropdown") {
-            for (let i = 14; i <= 18; i++) {
-                if (alteringFormElements[i].value === "") {
-                    alteringFormValues[alteringFormElements[i].name] = "*"
-                } else {
-                    alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-                }
-            }
-        } else if (tableSelector == "playedInDropdown") {
-            for (let i = 19; i <= 21; i++) {
-                if (alteringFormElements[i].value === "") {
-                    alteringFormValues[alteringFormElements[i].name] = "*"
-                } else {
-                    alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-                }
-            }
-        } else if (tableSelector == "teamDropdown") {
-            let i = 22
-            if (alteringFormElements[i].value === "") {
-                alteringFormValues[alteringFormElements[i].name] = "*"
+        let url = `/api/${tableSelector}`;
+
+        for (let input of inputs) {
+            if (input.value === "") {
+                alteringFormValues[input.name] = "*"
             } else {
-                alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-            }
-        } else if (tableSelector == "managerDropdown") {
-            for (let i = 23; i <= 26; i++) {
-                if (alteringFormElements[i].value === "") {
-                    alteringFormValues[alteringFormElements[i].name] = "*"
-                } else {
-                    alteringFormValues[alteringFormElements[i].name] = alteringFormElements[i].value
-                }
+                alteringFormValues[input.name] = input.value
             }
         }
-        // console.log(alteringFormValues)
-        conductTask(taskSelector, tableSelector, alteringFormValues)
-    }
 
-    function conductTask(taskSelector, tableSelector, alteringFormValues) {
-        // CONNECT TO DATABASE / CONDUCT DATABASE ALTERATIONS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!
+        console.log(alteringFormValues)
+        console.log(url)
+        let res = await fetch(url + '?' + new URLSearchParams(alteringFormValues), {
+            method: taskSelector
+        })
+        let data = await res.json()
+        console.log(data)
     }
 </script>
 
