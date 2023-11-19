@@ -7,11 +7,13 @@ const port = 3000
 app.use(express.static('public'))
 
 const tables = ['player', 'participatedIn', 'match_', 'playedIn', 'manager']
+const idColumns = ['playerID']
 
 app.get('/api/:table', (req, res) => {
     if (!tables.includes(req.params.table)) {
         return res.status(404).send('Table not found');
     }
+
     const where = Object.keys(req.query)
         .filter(key => req.query[key] !== '*')
         .map(key =>
@@ -28,32 +30,39 @@ app.post('/api/:table', (req, res) => {
     if (!tables.includes(req.params.table)) {
         return res.status(404).send('Table not found');
     }
+
     const set = Object.keys(req.query)
         .filter(key => req.query[key] !== '*')
         .map(key =>
             `${key} = '${req.query[key]}'`
         ).join(', ');
 
-    connection.query('INSERT INTO ' + req.params.table + ' SET ' + set, req.query, function (error, results, fields) {
+    connection.query(`INSERT INTO ${req.params.table} SET ${set}`, function (error, results, fields) {
         if (error) throw error;
         res.send(results);
     });
 })
 
-app.patch('/api/{table}', (req, res) => {
-    // TODO: Implement
+app.patch('/api/:table', (req, res) => {
     if (!tables.includes(req.params.table)) {
         return res.status(404).send('Table not found');
     }
-    //console.log(req.query);
+    if (!req.query.playerID) {
+        return res.status(400).send('playerID not found');
+    }
+
     const where = Object.keys(req.query)
         .filter(key => req.query[key] !== '*')
+        .filter((key) => idColumns.includes(key))
         .map(key =>
-            `${key} = '${req.query[key]}%'`
+            `${key} = '${req.query[key]}'`
         ).join(' AND ');
 
-    const updateFields = Object.keys(req.body)
-        .map(key => `${key} = '${req.body[key]}'`)
+    const updateFields = Object.keys(req.query)
+        .filter(key => req.query[key] !== '*')
+        .filter((key) => !idColumns.includes(key))
+        .map(key =>
+            `${key} = '${req.query[key]}'`)
         .join(', ');
 
     connection.query(`UPDATE ${req.params.table} SET ${updateFields} WHERE ${where}`, function (error, results) {
