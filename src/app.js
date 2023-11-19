@@ -40,8 +40,26 @@ app.post('/api/:table', (req, res) => {
     });
 })
 
-app.patch('/api/:table', (req, res) => {
+app.patch('/api/{table}', (req, res) => {
     // TODO: Implement
+    if (!tables.includes(req.params.table)) {
+        return res.status(404).send('Table not found');
+    }
+    //console.log(req.query);
+    const where = Object.keys(req.query)
+        .filter(key => req.query[key] !== '*')
+        .map(key =>
+            `${key} = '${req.query[key]}%'`
+        ).join(' AND ');
+
+    const updateFields = Object.keys(req.body)
+        .map(key => `${key} = '${req.body[key]}'`)
+        .join(', ');
+
+    connection.query(`UPDATE ${req.params.table} SET ${updateFields} WHERE ${where}`, function (error, results) {
+        if (error) throw error;
+        res.send(results);
+    });
 })
 
 app.delete('/api/:table', (req, res) => {
