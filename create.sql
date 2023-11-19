@@ -13,6 +13,7 @@ create table manager(
 	fName varchar(255),
 	lName varchar(255),
 	birthday date,
+	managerID int not null,
 	constraint PK_manager primary key (tName,fName,lName),
 	constraint FK_managerTname foreign key (tName) references team(teamName)
 	on delete cascade on update cascade
