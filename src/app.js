@@ -6,65 +6,46 @@ const port = 3000
 
 app.use(express.static('public'))
 
-const generateWhereClause = (query) =>
-    Object.keys(query)
-        .filter(key => query[key] !== '*')
+const tables = ['player', 'participatedIn', 'match_', 'playedIn', 'manager']
+
+app.get('/api/:table', (req, res) => {
+    if (!tables.includes(req.params.table)) {
+        return res.status(404).send('Table not found');
+    }
+    //console.log(req.query);
+    const where = Object.keys(req.query)
+        .filter(key => req.query[key] !== '*')
         .map(key =>
-            `${key} LIKE '%${query[key]}%'`
+            `${key} LIKE '%${req.query[key]}%'`
         ).join(' AND ');
 
-app.get('/api/player', (req, res) => {
-    console.log(req.query);
-    connection.query('SELECT * FROM player WHERE TRUE AND ' + generateWhereClause(req.query), function (error, results, fields) {
+    connection.query('SELECT * FROM ' + req.params.table + ' WHERE TRUE AND ' + where, function (error, results, fields) {
         if (error) throw error;
-        console.log(results);
+        //console.log(results);
         res.send(results);
     });
 })
 
-app.get('/api/team', (req, res) => {
-    console.log(req.query);
-    connection.query('SELECT * FROM team WHERE TRUE AND ' + generateWhereClause(req.query), function (error, results, fields) {
+app.post('/api/{table}', (req, res) => {
+    // TODO: Implement
+    if (!tables.includes(req.params.table)) {
+        return res.status(404).send('Table not found');
+    }
+    //console.log(req.query);
+
+    connection.query('INSERT INTO ' + req.params.table + ' SET ?', req.query, function (error, results, fields) {
         if (error) throw error;
-        console.log(results);
+        // console.log(results);
         res.send(results);
     });
 })
 
-app.get('/api/manager', (req, res) => {
-    console.log(req.query);
-    connection.query('SELECT * FROM manager WHERE TRUE AND ' + generateWhereClause(req.query), function (error, results, fields) {
-        if (error) throw error;
-        console.log(results);
-        res.send(results);
-    });
+app.patch('/api/{table}', (req, res) => {
+    // TODO: Implement
 })
 
-app.get('/api/match', (req, res) => {
-    console.log(req.query);
-    connection.query('SELECT * FROM match WHERE TRUE AND ' + generateWhereClause(req.query), function (error, results, fields) {
-        if (error) throw error;
-        console.log(results);
-        res.send(results);
-    });
-})
-
-app.get('/api/participatedIn', (req, res) => {
-    console.log(req.query);
-    connection.query('SELECT * FROM participatedIn WHERE TRUE AND ' + generateWhereClause(req.query), function (error, results, fields) {
-        if (error) throw error;
-        console.log(results);
-        res.send(results);
-    });
-})
-
-app.get('/api/playedIn', (req, res) => {
-    console.log(req.query);
-    connection.query('SELECT * FROM playedIn WHERE TRUE AND ' + generateWhereClause(req.query), function (error, results, fields) {
-        if (error) throw error;
-        console.log(results);
-        res.send(results);
-    });
+app.delete('/api/{table}', (req, res) => {
+    // TODO: Implement
 })
 
 app.listen(port, () => {
