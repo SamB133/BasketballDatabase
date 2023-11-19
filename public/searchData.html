@@ -4,15 +4,64 @@
 <head>
     <title>4347 Database Project</title>
     <style>
-        div {
-            margin-bottom: 10px;
-        }
-
-        label {
-            display: inline-block;
-            width: 150px;
-            text-align: right;
-        }
+	select {
+		margin-bottom: 10px;
+	}
+	
+    div {
+		margin-bottom: 10px;
+    }
+	
+    label {
+		display: inline-block;
+		width: 150px;
+		text-align: right;
+	}
+	
+	table, #searchHeading {
+		position: relative;
+		left: 30px;
+	}
+	
+	table {
+		overflow: hidden;
+		border-spacing: 0;
+		border-collapse: separate; 
+		border-style: hidden;
+		font-size: 16px;
+		text-align: center;
+		border-radius: 9px;
+		border: 1px solid black;
+	}
+	
+	th {
+		background-color: #74B666;
+	}
+	
+	th, td {
+		padding: 5px;
+	}
+	
+	tr:nth-child(even) {
+		background-color: #D8EBD3;
+	}
+	
+	#searchButtons {
+		position: relative;
+		left: 154px;
+	}
+	
+	#clearButton {
+		position: relative;
+		left: 137px;
+	}
+	
+	#noMatches {
+		visibility: hidden;
+		color: red;
+		position: relative;
+		left: 60px;
+	}
     </style>
 </head>
 
@@ -26,27 +75,27 @@
     <h3>Data Search</h3>
 
     <form id="queryForm">
-        <!--  Selector -->
+        <!-- Dropdown Selector -->
         <label for="typeSelection">Choose a search type:</label>
-        <select name="TypeSelection" id="typeSelection" onchange="changeTable()">
+        <select name="TypeSelection" id="typeSelection" onchange="changeTableDropdown()">
             <option value="default">Choose Type</option>
-            <option value="player">Player</option>
-            <option value="participatedIn">Participated In</option>
-            <option value="match">Match</option>
-            <option value="playedIn">Played In</option>
-            <option value="manager">Manager</option>
+            <option value="playerDropdown">Player</option>
+            <option value="participatedInDropdown">Participated In</option>
+            <option value="matchDropdown">Match</option>
+            <option value="playedInDropdown">Played In</option>
+            <option value="managerDropdown">Manager</option>
         </select>
 
         <!-- If 'Player' is selected -->
-        <div id="player">
+        <div id="playerDropdown">
             <label for="playerID">Player ID</label>
             <input type="text" id="playerID" name="playerID" placeholder="Player ID" size="30"><br>
             <label for="Fname">First Name</label>
             <input type="text" id="fName" name="Fname" placeholder="First Name" size="30"><br>
             <label for="Lname">Last Name</label>
             <input type="text" id="lName" name="Lname" placeholder="Last Name" size="30"><br>
-            <label for="birthday">Birthday (yyyy-mm-dd)</label>
-            <input type="text" id="birthday" name="birthday" placeholder="yyyy-mm-dd" size="30"><br>
+            <label for="birthday">Birthday (mm/dd/yyyy)</label>
+            <input type="text" id="birthday" name="birthday" placeholder="Birthday" size="30"><br>
             <label for="position">Position</label>
             <input type="text" id="position" name="position" placeholder="Position" size="30"><br>
             <label for="Tname">Team Name</label>
@@ -54,7 +103,7 @@
         </div>
 
         <!-- If 'Participated In' is selected -->
-        <div id="participatedIn">
+        <div id="participatedInDropdown">
             <label for="playerID">Player ID</label>
             <input type="text" id="playerID" name="playerID" placeholder="Player ID" size="30"><br>
             <label for="matchNum">Match Number</label>
@@ -72,7 +121,7 @@
         </div>
 
         <!-- If 'Match' is selected -->
-        <div id="match">
+        <div id="matchDropdown">
             <label for="matchNum">Match Number</label>
             <input type="text" id="matchNum" name="matchNum" placeholder="Match Number" size="30"><br>
             <label for="time">Time</label>
@@ -86,7 +135,7 @@
         </div>
 
         <!-- If 'Played In' is selected -->
-        <div id="playedIn">
+        <div id="playedInDropdown">
             <label for="Mnum">Match Number</label>
             <input type="text" id="mNum" name="mNum" placeholder="Match Number" size="30"><br>
             <label for="homeTeam">Home Team</label>
@@ -96,65 +145,160 @@
         </div>
 
         <!-- If 'Manager' is selected -->
-        <div id="manager">
+        <div id="managerDropdown">
             <label for="tName">Team Name</label>
             <input type="text" id="Tname" name="Tname" placeholder="Team Name" size="30"><br>
             <label for="fName">First Name</label>
             <input type="text" id="Fname" name="Fname" placeholder="First Name" size="30"><br>
             <label for="lName">Last Name</label>
             <input type="text" id="Lname" name="Lname" placeholder="Last Name" size="30"><br>
-            <label for="birthday">Birthday (yyyy-mm-dd)</label>
-            <input type="text" id="birthday" name="birthday" placeholder="yyyy-mm-dd" size="30"><br>
+            <label for="birthday">Birthday (mm/dd/yyyy)</label>
+            <input type="text" id="birthday" name="birthday" placeholder="Birthday" size="30"><br>
         </div>
     </form>
-
-    <button onclick="getQuerySubmission(), resetForm()" id="searchButton">Search</button><br>
-
-    <label for="queryResults">Query Results:</label><br>
-    <input type="text" id="queryResults" name="queryResults" placeholder="Waiting for Query..." size="30" readonly><br>
+	
+	<div id="searchButtons">
+		<button onclick="getQuerySubmission()" id="searchButton">Search</button>
+		<button onclick="clearForm()" id="clearButton">Clear</button>
+	</div>
+	
+    <div id="resultsWindow">
+		<h2 id="searchHeading">Search Results:</h2>
+        <div id="tableWindow"></div>
+    </div>
+      
+    <h1 id="noMatches">No Matches Found</h1>
 </body>
 <script>
     onload = function () {
-        changeTable()
+        changeTableDropdown()
     }
 
-    function changeTable() {
-        document.getElementById("player").style.display = typeSelection.value == "player" ? "block" : "none"
-        document.getElementById("match").style.display = typeSelection.value == "match" ? "block" : "none"
-        document.getElementById("participatedIn").style.display = typeSelection.value == "participatedIn" ? "block" : "none"
-        document.getElementById("playedIn").style.display = typeSelection.value == "playedIn" ? "block" : "none"
-        document.getElementById("manager").style.display = typeSelection.value == "manager" ? "block" : "none"
+    function changeTableDropdown() {
+        document.getElementById("playerDropdown").style.display = typeSelection.value == "playerDropdown" ? "block" : "none"
+        document.getElementById("matchDropdown").style.display = typeSelection.value == "matchDropdown" ? "block" : "none"
+        document.getElementById("participatedInDropdown").style.display = typeSelection.value == "participatedInDropdown" ? "block" : "none"
+        document.getElementById("playedInDropdown").style.display = typeSelection.value == "playedInDropdown" ? "block" : "none"
+        document.getElementById("managerDropdown").style.display = typeSelection.value == "managerDropdown" ? "block" : "none"
+		document.getElementById("searchButtons").style.display = typeSelection.value != "default" ? "block" : "none"
+		document.getElementById("resultsWindow").style.display = "none"
     }
 
     function resetForm() {
         const queryForm = document.getElementById("queryForm")
         queryForm.reset()
-        changeTable("default")
+        changeTableDropdown()
+    }
+	
+	function clearForm() {
+        const queryForm = document.getElementById("queryForm")
+		let temp = document.getElementById("typeSelection").value
+        queryForm.reset()
+		document.getElementById("typeSelection").value = temp
     }
 
     async function getQuerySubmission() {
         // Get the values from the form section according to the dropdown selection
         const typeSelection = document.getElementById("typeSelection").value
-
-        const inputs = Array.from(document.getElementById(typeSelection).children).filter(node => node.nodeName == "INPUT")
+        const queryForm = document.getElementById("queryForm")
+        const queryFormElements = queryForm.elements
         const queryFormValues = {}
-        let url = `/api/${typeSelection}`;
-
-        for (let input of inputs) {
-            if (input.value === "") {
-                queryFormValues[input.name] = "*"
-            } else {
-                queryFormValues[input.name] = input.value
+        let url;
+        if (typeSelection == "playerDropdown") {
+            url = "/api/player"
+            for (let i = 1; i <= 6; i++) {
+                if (queryFormElements[i].value === "") {
+                    queryFormValues[queryFormElements[i].name] = "*"
+                } else {
+                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
+                }
+            }
+        } else if (typeSelection == "participatedInDropdown") {
+            url = "/api/participatedIn"
+            for (let i = 7; i <= 13; i++) {
+                if (queryFormElements[i].value === "") {
+                    queryFormValues[queryFormElements[i].name] = "*"
+                } else {
+                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
+                }
+            }
+        } else if (typeSelection == "matchDropdown") {
+            url = "/api/match_"
+            for (let i = 14; i <= 18; i++) {
+                if (queryFormElements[i].value === "") {
+                    queryFormValues[queryFormElements[i].name] = "*"
+                } else {
+                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
+                }
+            }
+        } else if (typeSelection == "playedInDropdown") {
+            url = "/api/playedIn"
+            for (let i = 19; i <= 21; i++) {
+                if (queryFormElements[i].value === "") {
+                    queryFormValues[queryFormElements[i].name] = "*"
+                } else {
+                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
+                }
+            }
+        } else if (typeSelection == "managerDropdown") {
+            url = "/api/manager"
+            for (let i = 22; i <= 25; i++) {
+                if (queryFormElements[i].value === "") {
+                    queryFormValues[queryFormElements[i].name] = "*"
+                } else {
+                    queryFormValues[queryFormElements[i].name] = queryFormElements[i].value
+                }
             }
         }
-
-        console.log(queryFormValues)
-        console.log(url)
         let res = await fetch(url + '?' + new URLSearchParams(queryFormValues))
         let data = await res.json()
-        console.log(data)
+		displayQueryResults(data)
     }
 
-</script>
+	function displayQueryResults(data) {
+        tableWindow = document.getElementById("tableWindow")
+      	
+        // clear out the table div, incase of previous result content
+        tableWindow.innerHTML = ''
+                
+        if (Object.keys(data).length === 0) {
+            tableWindow.appendChild(document.getElementById("noMatches").cloneNode(true))
+            document.getElementById("noMatches").style.visibility = "visible"
+        }
+        else {
+            let table = document.createElement("table")
+				let cols = Object.keys(data[0])
+				let thead = document.createElement("thead")
+				let tr = document.createElement("tr")
+				cols.forEach((item) => {
+					let th = document.createElement("th")
+					th.innerText = item
+					tr.appendChild(th)
+				})
+				thead.appendChild(tr)
+				table.append(tr)
 
+				data.forEach((item) => {
+					let tr = document.createElement("tr");
+					let vals = Object.values(item)
+					vals.forEach((elem) => {
+						let td = document.createElement("td")
+						td.innerText = elem
+						tr.appendChild(td)
+					})
+					table.appendChild(tr)
+				})
+				tableWindow.appendChild(table)
+      		}
+      	resultsWindow.style.display = "block"
+	}
+	
+	document.addEventListener("keydown", function(event) {
+		if (event.code === "Enter"){
+			getQuerySubmission()
+		} else if (event.code === "Delete"){
+			clearForm()
+		}
+	}, true)
+</script>
 </html>
