@@ -20,7 +20,7 @@ app.get('/api/:table', (req, res) => {
             .map(key =>
                 `${key} LIKE '%${req.query[key]}%'`
             ).join(' AND ');
-
+        console.log(`SELECT * FROM ${req.params.table} ${where === '' ? '' : 'WHERE'} ${where}`)
         connection.query(`SELECT * FROM ${req.params.table} ${where === '' ? '' : 'WHERE'} ${where}`, function (error, results, fields) {
             if (error) return res.status(500).send({ error: error });
             res.send(results);

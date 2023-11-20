@@ -7,11 +7,8 @@
     <link rel="stylesheet" href="./styles/searchData.css" />
 
     <style>
-        select {
-            margin-bottom: 10px;
-        }
-
-        div {
+       
+       div {
             margin-bottom: 10px;
         }
 
@@ -20,47 +17,6 @@
             width: 150px;
             text-align: right;
         }
-
-        table,
-        #searchHeading {
-            position: relative;
-            left: 30px;
-        }
-
-        table {
-            overflow: hidden;
-            border-spacing: 0;
-            border-collapse: separate;
-            border-style: hidden;
-            font-size: 16px;
-            text-align: center;
-            border-radius: 9px;
-            border: 1px solid black;
-        }
-
-        th {
-            background-color: #74B666;
-        }
-
-        th,
-        td {
-            padding: 5px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #D8EBD3;
-        }
-
-        #searchButtons {
-            position: relative;
-            left: 154px;
-        }
-
-        #clearButton {
-            position: relative;
-            left: 137px;
-        }
-
         #noMatches {
             visibility: hidden;
             color: red;
@@ -204,6 +160,21 @@
         document.getElementById("typeSelection").value = temp
     }
 
+    function formatDate(isoDateString) {
+    const date = new Date(isoDateString);
+    let month = '' + (date.getMonth() + 1), 
+        day = '' + date.getDate(),
+        year = date.getFullYear().toString().substr(-2); 
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [month, day, year].join('-');
+}
+
+
+
     async function getQuerySubmission() {
         // Get the values from the form section according to the dropdown selection
         const typeSelection = document.getElementById("typeSelection").value
@@ -220,47 +191,62 @@
             }
         }
 
+        console.log(queryFormValues)
+        console.log(url)
+
         let res = await fetch(url + '?' + new URLSearchParams(queryFormValues))
         let data = await res.json()
+        console.log(data)
+
+        if (data && Array.isArray(data)) {
+            displayQueryResults(data);
+        }  else {
+        console.error('No data received or data is not in expected format');
+        }
     }
 
     function displayQueryResults(data) {
-        tableWindow = document.getElementById("tableWindow")
+    const tableWindow = document.getElementById("tableWindow");
+    tableWindow.innerHTML = ''; // Clear previous results
 
-        // clear out the table div, incase of previous result content
-        tableWindow.innerHTML = ''
+    if (Object.keys(data).length === 0) {
+        document.getElementById("noMatches").style.visibility = "visible";
+    } else {
+        let table = document.createElement("table");
+        let thead = document.createElement("thead");
+        let headerRow = document.createElement("tr");
 
-        if (Object.keys(data).length === 0) {
-            tableWindow.appendChild(document.getElementById("noMatches").cloneNode(true))
-            document.getElementById("noMatches").style.visibility = "visible"
-        }
-        else {
-            let table = document.createElement("table")
-            let cols = Object.keys(data[0])
-            let thead = document.createElement("thead")
-            let tr = document.createElement("tr")
-            cols.forEach((item) => {
-                let th = document.createElement("th")
-                th.innerText = item
-                tr.appendChild(th)
-            })
-            thead.appendChild(tr)
-            table.append(tr)
+        // Assuming first row has headers
+        Object.keys(data[0]).forEach(header => {
+            let th = document.createElement("th");
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
 
-            data.forEach((item) => {
-                let tr = document.createElement("tr");
-                let vals = Object.values(item)
-                vals.forEach((elem) => {
-                    let td = document.createElement("td")
-                    td.innerText = elem
-                    tr.appendChild(td)
-                })
-                table.appendChild(tr)
-            })
-            tableWindow.appendChild(table)
-        }
-        resultsWindow.style.display = "block"
+        // Body of the table
+        data.forEach(row => {
+            let tr = document.createElement("tr");
+            Object.values(row).forEach((value, index) => {
+                let td = document.createElement("td");
+                // Format the date if it's in the expected column index
+                // Assuming the date is in the fourth column (index 3)
+                if (index === 3) { 
+                    td.textContent = formatDate(value);
+                } else {
+                    td.textContent = value;
+                }
+                tr.appendChild(td);
+            });
+            table.appendChild(tr);
+        });
+
+        tableWindow.appendChild(table);
+        document.getElementById("resultsWindow").style.display = "block";
     }
+}
+
 
     document.addEventListener("keydown", function (event) {
         if (event.code === "Enter") {
