@@ -3,68 +3,70 @@
 
 <head>
     <title>4347 Database Project</title>
-    <link rel="stylesheet" href="./styles/style.css"/>
-    <link rel="stylesheet" href="./styles/searchData.css"/>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/searchData.css" />
 
     <style>
-	select {
-		margin-bottom: 10px;
-	}
-	
-    div {
-		margin-bottom: 10px;
-    }
-	
-    label {
-		display: inline-block;
-		width: 150px;
-		text-align: right;
-	}
-	
-	table, #searchHeading {
-		position: relative;
-		left: 30px;
-	}
-	
-	table {
-		overflow: hidden;
-		border-spacing: 0;
-		border-collapse: separate; 
-		border-style: hidden;
-		font-size: 16px;
-		text-align: center;
-		border-radius: 9px;
-		border: 1px solid black;
-	}
-	
-	th {
-		background-color: #74B666;
-	}
-	
-	th, td {
-		padding: 5px;
-	}
-	
-	tr:nth-child(even) {
-		background-color: #D8EBD3;
-	}
-	
-	#searchButtons {
-		position: relative;
-		left: 154px;
-	}
-	
-	#clearButton {
-		position: relative;
-		left: 137px;
-	}
-	
-	#noMatches {
-		visibility: hidden;
-		color: red;
-		position: relative;
-		left: 60px;
-	}
+        select {
+            margin-bottom: 10px;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+        }
+
+        table,
+        #searchHeading {
+            position: relative;
+            left: 30px;
+        }
+
+        table {
+            overflow: hidden;
+            border-spacing: 0;
+            border-collapse: separate;
+            border-style: hidden;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 9px;
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #74B666;
+        }
+
+        th,
+        td {
+            padding: 5px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #D8EBD3;
+        }
+
+        #searchButtons {
+            position: relative;
+            left: 154px;
+        }
+
+        #clearButton {
+            position: relative;
+            left: 137px;
+        }
+
+        #noMatches {
+            visibility: hidden;
+            color: red;
+            position: relative;
+            left: 60px;
+        }
     </style>
 </head>
 
@@ -149,6 +151,8 @@
 
         <!-- If 'Manager' is selected -->
         <div id="managerDropdown">
+            <label for="managerID">managerID</label>
+            <input type="text" id="managerID" name="managerID" placeholder="managerID" size="30"><br>
             <label for="tName">Team Name</label>
             <input type="text" id="Tname" name="Tname" placeholder="Team Name" size="30"><br>
             <label for="fName">First Name</label>
@@ -159,17 +163,17 @@
             <input type="text" id="birthday" name="birthday" placeholder="Birthday" size="30"><br>
         </div>
     </form>
-	
-	<div id="searchButtons">
-		<button onclick="getQuerySubmission()" id="searchButton">Search</button>
-		<button onclick="clearForm()" id="clearButton">Clear</button>
-	</div>
-	
+
+    <div id="searchButtons">
+        <button onclick="getQuerySubmission()" id="searchButton">Search</button>
+        <button onclick="clearForm()" id="clearButton">Clear</button>
+    </div>
+
     <div id="resultsWindow">
-		<h2 id="searchHeading">Search Results:</h2>
+        <h2 id="searchHeading">Search Results:</h2>
         <div id="tableWindow"></div>
     </div>
-      
+
     <h1 id="noMatches">No Matches Found</h1>
 </body>
 <script>
@@ -183,8 +187,8 @@
         document.getElementById("participatedInDropdown").style.display = typeSelection.value == "participatedInDropdown" ? "block" : "none"
         document.getElementById("playedInDropdown").style.display = typeSelection.value == "playedInDropdown" ? "block" : "none"
         document.getElementById("managerDropdown").style.display = typeSelection.value == "managerDropdown" ? "block" : "none"
-		document.getElementById("searchButtons").style.display = typeSelection.value != "default" ? "block" : "none"
-		document.getElementById("resultsWindow").style.display = "none"
+        document.getElementById("searchButtons").style.display = typeSelection.value != "default" ? "block" : "none"
+        document.getElementById("resultsWindow").style.display = "none"
     }
 
     function resetForm() {
@@ -192,12 +196,12 @@
         queryForm.reset()
         changeTableDropdown()
     }
-	
-	function clearForm() {
+
+    function clearForm() {
         const queryForm = document.getElementById("queryForm")
-		let temp = document.getElementById("typeSelection").value
+        let temp = document.getElementById("typeSelection").value
         queryForm.reset()
-		document.getElementById("typeSelection").value = temp
+        document.getElementById("typeSelection").value = temp
     }
 
     async function getQuerySubmission() {
@@ -255,53 +259,54 @@
         }
         let res = await fetch(url + '?' + new URLSearchParams(queryFormValues))
         let data = await res.json()
-		displayQueryResults(data)
+        displayQueryResults(data)
     }
 
-	function displayQueryResults(data) {
+    function displayQueryResults(data) {
         tableWindow = document.getElementById("tableWindow")
-      	
+
         // clear out the table div, incase of previous result content
         tableWindow.innerHTML = ''
-                
+
         if (Object.keys(data).length === 0) {
             tableWindow.appendChild(document.getElementById("noMatches").cloneNode(true))
             document.getElementById("noMatches").style.visibility = "visible"
         }
         else {
             let table = document.createElement("table")
-				let cols = Object.keys(data[0])
-				let thead = document.createElement("thead")
-				let tr = document.createElement("tr")
-				cols.forEach((item) => {
-					let th = document.createElement("th")
-					th.innerText = item
-					tr.appendChild(th)
-				})
-				thead.appendChild(tr)
-				table.append(tr)
+            let cols = Object.keys(data[0])
+            let thead = document.createElement("thead")
+            let tr = document.createElement("tr")
+            cols.forEach((item) => {
+                let th = document.createElement("th")
+                th.innerText = item
+                tr.appendChild(th)
+            })
+            thead.appendChild(tr)
+            table.append(tr)
 
-				data.forEach((item) => {
-					let tr = document.createElement("tr");
-					let vals = Object.values(item)
-					vals.forEach((elem) => {
-						let td = document.createElement("td")
-						td.innerText = elem
-						tr.appendChild(td)
-					})
-					table.appendChild(tr)
-				})
-				tableWindow.appendChild(table)
-      		}
-      	resultsWindow.style.display = "block"
-	}
-	
-	document.addEventListener("keydown", function(event) {
-		if (event.code === "Enter"){
-			getQuerySubmission()
-		} else if (event.code === "Delete"){
-			clearForm()
-		}
-	}, true)
+            data.forEach((item) => {
+                let tr = document.createElement("tr");
+                let vals = Object.values(item)
+                vals.forEach((elem) => {
+                    let td = document.createElement("td")
+                    td.innerText = elem
+                    tr.appendChild(td)
+                })
+                table.appendChild(tr)
+            })
+            tableWindow.appendChild(table)
+        }
+        resultsWindow.style.display = "block"
+    }
+
+    document.addEventListener("keydown", function (event) {
+        if (event.code === "Enter") {
+            getQuerySubmission()
+        } else if (event.code === "Delete") {
+            clearForm()
+        }
+    }, true)
 </script>
+
 </html>

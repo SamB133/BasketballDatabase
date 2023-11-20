@@ -3,11 +3,10 @@
 
 <head>
     <title>4347 Database Project</title>
-    <link rel="stylesheet" href="./styles/style.css"/>
-    <link rel="stylesheet" href="./styles/alterData.css"/>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/alterData.css" />
 
     <style>
-        
         div {
             margin-bottom: 10px;
         }
@@ -117,6 +116,8 @@
 
         <!-- If 'Manager' is selected -->
         <div id="manager">
+            <label for="managerID">managerID</label>
+            <input type="text" id="managerID" name="managerID" placeholder="managerID" size="30"><br>
             <label for="tName">Team Name</label>
             <input type="text" id="tName" name="Tname" placeholder="Team Name" size="30"><br>
             <label for="fName">First Name</label>
@@ -169,15 +170,11 @@
                 alteringFormValues[input.name] = input.value
             }
         }
-       console.log(`TASK SELECTOR HERE ${taskSelector}`);
 
-       console.log(`ALTERING FORM VALUES ${alteringFormValues}`)
-       console.log(`URL IS HERE ${url}`)
         let res = await fetch(url + '?' + new URLSearchParams(alteringFormValues), {
             method: taskSelector
         })
         let data = await res.json()
-       console.log(`DATA IS HERE ${data}`)
     }
 </script>
 
