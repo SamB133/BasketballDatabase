@@ -1,10 +1,10 @@
 create database project4347;
 use project4347;
-show tables;
+--show tables;
 
 create table team(
+	teamID int not null auto_increment,
 	teamName varchar(255),
-	teamID int not null,
 	constraint PK_teamName primary key (teamName)
 );
 
@@ -13,7 +13,7 @@ create table manager(
 	fName varchar(255),
 	lName varchar(255),
 	birthday date,
-	managerID int not null,
+	managerID int not null auto_increment,
 	constraint PK_manager primary key (tName,fName,lName),
 	constraint FK_managerTname foreign key (tName) references team(teamName)
 	on delete cascade on update cascade
@@ -21,7 +21,7 @@ create table manager(
 
 
 create table player(
-	playerID int not null,
+	playerID int not null auto_increment,
 	fName varchar(255),
 	lName varchar(255),
 	birthday date,
@@ -33,7 +33,7 @@ create table player(
 );
 
 create table match_(
-	matchNum int not null,
+	matchNum int not null auto_increment,
 	matchTime time,
 	homeScore int,
 	awayScore int,
