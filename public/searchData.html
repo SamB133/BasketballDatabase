@@ -182,11 +182,11 @@
     }
 
     function changeTableDropdown() {
-        document.getElementById("player").style.display = typeSelection.value == "playerDropdown" ? "block" : "none"
-        document.getElementById("match").style.display = typeSelection.value == "matchDropdown" ? "block" : "none"
-        document.getElementById("participatedIn").style.display = typeSelection.value == "participatedInDropdown" ? "block" : "none"
-        document.getElementById("playedIn").style.display = typeSelection.value == "playedInDropdown" ? "block" : "none"
-        document.getElementById("manager").style.display = typeSelection.value == "managerDropdown" ? "block" : "none"
+        document.getElementById("player").style.display = typeSelection.value == "player" ? "block" : "none"
+        document.getElementById("match").style.display = typeSelection.value == "match" ? "block" : "none"
+        document.getElementById("participatedIn").style.display = typeSelection.value == "participatedIn" ? "block" : "none"
+        document.getElementById("playedIn").style.display = typeSelection.value == "playedIn" ? "block" : "none"
+        document.getElementById("manager").style.display = typeSelection.value == "manager" ? "block" : "none"
         document.getElementById("searchButtons").style.display = typeSelection.value != "default" ? "block" : "none"
         document.getElementById("resultsWindow").style.display = "none"
     }
