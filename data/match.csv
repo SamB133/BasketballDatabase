@@ -1,501 +1,501 @@
-matchNum,matchTime,homeScore,awayScore,location
-1,22:43:21,100,118,Charlotte
-2,22:43:21,91,115,San Antonio
-3,19:43:21,133,91,Minneapolis
-4,22:43:21,134,92,San Antonio
-5,22:43:21,135,148,Brooklyn
-6,20:43:21,132,103,New York
-7,19:43:21,117,123,Minneapolis
-8,20:43:21,112,107,Los Angeles
-9,21:43:21,111,88,Orlando
-10,21:43:21,96,138,Brooklyn
-11,21:43:21,122,150,Boston
-12,20:43:21,97,86,Miami
-13,19:43:21,117,110,Memphis
-14,22:43:21,132,143,Miami
-15,19:43:21,129,129,Miami
-16,21:43:21,136,138,Salt Lake City
-17,22:43:21,85,87,Cleveland
-18,21:43:21,144,116,Atlanta
-19,19:43:21,118,142,Denver
-20,19:43:21,114,122,Boston
-21,21:43:21,113,102,Portland
-22,22:43:21,101,143,Minneapolis
-23,18:43:21,83,141,San Antonio
-24,21:43:21,114,116,Miami
-25,19:43:21,144,117,Cleveland
-26,19:43:21,111,108,Pheonix
-27,20:43:21,115,129,Orlando
-28,19:43:21,124,80,Cleveland
-29,18:43:21,133,133,Milwaukee
-30,18:43:21,114,92,Philadelphia
-31,18:43:21,85,150,Dallas
-32,19:43:21,131,139,San Francisco
-33,22:43:21,125,121,Sacramento
-34,21:43:21,96,92,Minneapolis
-35,22:43:21,105,81,Washington
-36,19:43:21,81,140,Los Angeles
-37,20:43:21,110,131,Dallas
-38,20:43:21,98,103,Boston
-39,21:43:21,91,149,Detroit
-40,18:43:21,80,81,Cleveland
-41,22:43:21,114,81,Sacramento
-42,21:43:21,96,126,Atlanta
-43,20:43:21,131,92,Sacramento
-44,20:43:21,102,97,Oklahoma City
-45,20:43:21,141,127,Salt Lake City
-46,21:43:21,103,141,Indianapolis
-47,20:43:21,121,89,Toronto
-48,19:43:21,109,83,Los Angeles
-49,19:43:21,107,100,Philadelphia
-50,18:43:21,120,119,Orlando
-51,20:43:21,146,110,Milwaukee
-52,19:43:21,83,86,Charlotte
-53,20:43:21,135,98,New Orleans
-54,19:43:21,81,109,Pheonix
-55,22:43:21,126,88,Brooklyn
-56,20:43:21,142,103,Portland
-57,19:43:21,113,145,New Orleans
-58,20:43:21,117,146,Salt Lake City
-59,20:43:21,133,80,Orlando
-60,19:43:21,117,127,Los Angeles
-61,21:43:21,95,80,Orlando
-62,22:43:21,92,89,Boston
-63,18:43:21,111,114,Salt Lake City
-64,22:43:21,108,103,Los Angeles
-65,21:43:21,128,134,Denver
-66,19:43:21,80,101,New York
-67,21:43:21,139,134,Oklahoma City
-68,18:43:21,126,90,Salt Lake City
-69,18:43:21,80,108,New Orleans
-70,18:43:21,135,108,San Francisco
-71,20:43:21,103,111,Washington
-72,18:43:21,149,101,Sacramento
-73,18:43:21,126,91,Dallas
-74,22:43:21,91,138,Cleveland
-75,18:43:21,83,112,Charlotte
-76,20:43:21,149,97,Atlanta
-77,18:43:21,104,150,Miami
-78,21:43:21,124,109,Los Angeles
-79,18:43:21,128,95,Miami
-80,21:43:21,130,83,Los Angeles
-81,18:43:21,107,109,Washington
-82,19:43:21,137,101,Oklahoma City
-83,21:43:21,101,81,Chicago
-84,22:43:21,90,83,Milwaukee
-85,18:43:21,122,121,Dallas
-86,21:43:21,93,123,Chicago
-87,21:43:21,91,110,New Orleans
-88,19:43:21,93,94,Chicago
-89,22:43:21,148,141,New York
-90,19:43:21,145,146,Houston
-91,22:43:21,90,107,Boston
-92,21:43:21,125,112,Denver
-93,22:43:21,123,88,Miami
-94,18:43:21,132,131,Milwaukee
-95,18:43:21,121,89,Dallas
-96,20:43:21,110,109,Cleveland
-97,19:43:21,130,113,Boston
-98,19:43:21,86,137,Indianapolis
-99,19:43:21,132,136,Atlanta
-100,21:43:21,91,97,Charlotte
-101,19:43:21,141,112,San Antonio
-102,22:43:21,96,139,Philadelphia
-103,19:43:21,99,112,Los Angeles
-104,18:43:21,131,118,Brooklyn
-105,18:43:21,108,141,Washington
-106,19:43:21,82,131,Pheonix
-107,20:43:21,123,103,Cleveland
-108,22:43:21,103,106,Detroit
-109,20:43:21,109,135,Dallas
-110,19:43:21,105,88,Sacramento
-111,22:43:21,101,83,Cleveland
-112,19:43:21,86,136,New York
-113,22:43:21,110,82,Boston
-114,20:43:21,99,144,New Orleans
-115,18:43:21,105,108,Toronto
-116,22:43:21,121,148,Portland
-117,18:43:21,115,95,Brooklyn
-118,19:43:21,90,138,Los Angeles
-119,18:43:21,94,141,Denver
-120,22:43:21,118,92,San Antonio
-121,21:43:21,145,104,Miami
-122,22:43:21,132,120,Washington
-123,19:43:21,110,109,Charlotte
-124,20:43:21,92,108,Washington
-125,18:43:21,94,106,Dallas
-126,22:43:21,123,123,Indianapolis
-127,21:43:21,143,139,Memphis
-128,18:43:21,86,139,New Orleans
-129,18:43:21,110,113,New Orleans
-130,18:43:21,139,112,Atlanta
-131,21:43:21,109,131,Los Angeles
-132,19:43:21,141,96,Houston
-133,20:43:21,108,111,Atlanta
-134,19:43:21,126,130,Charlotte
-135,22:43:21,147,109,San Francisco
-136,19:43:21,89,99,Milwaukee
-137,19:43:21,120,99,Los Angeles
-138,21:43:21,100,133,Minneapolis
-139,18:43:21,109,121,Cleveland
-140,19:43:21,132,140,Pheonix
-141,20:43:21,91,94,Denver
-142,19:43:21,81,83,Brooklyn
-143,21:43:21,112,93,San Antonio
-144,19:43:21,147,105,New York
-145,18:43:21,128,146,Portland
-146,18:43:21,134,90,Detroit
-147,20:43:21,132,140,San Antonio
-148,20:43:21,82,94,San Antonio
-149,20:43:21,91,93,Detroit
-150,20:43:21,84,122,New York
-151,18:43:21,97,91,Los Angeles
-152,21:43:21,93,119,Chicago
-153,20:43:21,116,144,Los Angeles
-154,22:43:21,81,136,Memphis
-155,19:43:21,137,120,Memphis
-156,22:43:21,90,150,Chicago
-157,18:43:21,131,129,Toronto
-158,21:43:21,131,118,Salt Lake City
-159,20:43:21,138,80,Atlanta
-160,19:43:21,126,83,Cleveland
-161,19:43:21,107,93,Cleveland
-162,19:43:21,98,105,Miami
-163,18:43:21,139,122,Los Angeles
-164,22:43:21,84,85,Brooklyn
-165,18:43:21,135,116,Los Angeles
-166,21:43:21,133,144,Denver
-167,22:43:21,133,128,Atlanta
-168,18:43:21,137,109,Denver
-169,21:43:21,109,96,Portland
-170,18:43:21,138,134,Portland
-171,20:43:21,81,91,Chicago
-172,19:43:21,142,83,Charlotte
-173,21:43:21,122,114,Pheonix
-174,20:43:21,104,142,Minneapolis
-175,20:43:21,91,103,San Francisco
-176,18:43:21,133,89,Brooklyn
-177,20:43:21,130,117,Orlando
-178,20:43:21,99,146,Philadelphia
-179,21:43:21,87,123,Houston
-180,18:43:21,92,97,Chicago
-181,21:43:21,94,97,San Antonio
-182,19:43:21,117,147,Dallas
-183,19:43:21,108,143,Minneapolis
-184,19:43:21,124,97,Philadelphia
-185,20:43:21,126,113,Milwaukee
-186,22:43:21,134,141,Chicago
-187,20:43:21,122,97,Pheonix
-188,18:43:21,116,122,Philadelphia
-189,19:43:21,138,142,San Francisco
-190,22:43:21,81,113,Pheonix
-191,19:43:21,101,99,Portland
-192,18:43:21,126,121,Portland
-193,20:43:21,123,92,San Francisco
-194,22:43:21,91,133,Miami
-195,19:43:21,142,116,Dallas
-196,18:43:21,96,89,Brooklyn
-197,22:43:21,142,97,Detroit
-198,22:43:21,111,105,Chicago
-199,22:43:21,119,146,Pheonix
-200,20:43:21,103,130,Washington
-201,22:43:21,140,105,San Francisco
-202,19:43:21,86,147,Salt Lake City
-203,18:43:21,96,95,Orlando
-204,18:43:21,90,148,Sacramento
-205,18:43:21,91,90,New Orleans
-206,22:43:21,81,95,New Orleans
-207,21:43:21,145,87,Miami
-208,21:43:21,114,108,Dallas
-209,20:43:21,99,115,New York
-210,19:43:21,97,99,New York
-211,18:43:21,109,119,Boston
-212,22:43:21,92,94,Denver
-213,21:43:21,100,137,Salt Lake City
-214,20:43:21,102,126,Denver
-215,19:43:21,117,146,Denver
-216,18:43:21,89,96,Miami
-217,21:43:21,105,127,New York
-218,20:43:21,102,109,Minneapolis
-219,18:43:21,87,150,Houston
-220,18:43:21,133,80,Milwaukee
-221,19:43:21,126,87,Atlanta
-222,21:43:21,112,81,Los Angeles
-223,21:43:21,107,119,Boston
-224,22:43:21,106,121,Houston
-225,20:43:21,121,146,Salt Lake City
-226,19:43:21,117,144,New York
-227,19:43:21,131,103,Oklahoma City
-228,19:43:21,123,130,Indianapolis
-229,20:43:21,113,127,Denver
-230,20:43:21,141,124,Detroit
-231,22:43:21,138,128,Indianapolis
-232,21:43:21,136,105,Dallas
-233,20:43:21,145,106,Charlotte
-234,20:43:21,130,143,Orlando
-235,20:43:21,91,116,Oklahoma City
-236,21:43:21,98,142,Oklahoma City
-237,22:43:21,113,128,Minneapolis
-238,19:43:21,131,91,Indianapolis
-239,19:43:21,120,97,Brooklyn
-240,18:43:21,93,148,Boston
-241,21:43:21,103,128,Milwaukee
-242,21:43:21,90,101,Salt Lake City
-243,22:43:21,113,82,Memphis
-244,21:43:21,101,120,Oklahoma City
-245,18:43:21,112,86,Minneapolis
-246,18:43:21,113,148,Atlanta
-247,18:43:21,124,91,Indianapolis
-248,20:43:21,108,109,Brooklyn
-249,19:43:21,106,94,New York
-250,22:43:21,145,116,Detroit
-251,22:43:21,134,144,Detroit
-252,22:43:21,116,95,Memphis
-253,19:43:21,139,125,Memphis
-254,19:43:21,80,98,Pheonix
-255,21:43:21,93,98,Portland
-256,20:43:21,125,134,Charlotte
-257,21:43:21,104,147,Denver
-258,18:43:21,94,111,New York
-259,19:43:21,118,131,Sacramento
-260,22:43:21,149,149,Detroit
-261,18:43:21,132,121,New York
-262,20:43:21,118,124,Denver
-263,21:43:21,92,88,Orlando
-264,22:43:21,132,148,Los Angeles
-265,20:43:21,117,127,Dallas
-266,21:43:21,81,137,Memphis
-267,18:43:21,106,150,Milwaukee
-268,22:43:21,82,101,Houston
-269,20:43:21,106,106,Chicago
-270,21:43:21,105,94,Toronto
-271,18:43:21,97,148,Indianapolis
-272,19:43:21,147,91,Portland
-273,21:43:21,107,94,Sacramento
-274,19:43:21,93,132,Washington
-275,21:43:21,136,88,Washington
-276,20:43:21,141,94,Houston
-277,22:43:21,127,123,Los Angeles
-278,22:43:21,122,114,Indianapolis
-279,19:43:21,103,104,Detroit
-280,22:43:21,116,125,Toronto
-281,18:43:21,81,122,San Francisco
-282,19:43:21,119,92,Oklahoma City
-283,21:43:21,114,114,Detroit
-284,22:43:21,123,120,Sacramento
-285,19:43:21,114,139,San Francisco
-286,18:43:21,85,123,Philadelphia
-287,22:43:21,148,138,Toronto
-288,18:43:21,137,108,Detroit
-289,21:43:21,150,139,Houston
-290,18:43:21,136,137,Milwaukee
-291,21:43:21,110,113,Portland
-292,18:43:21,128,86,Atlanta
-293,20:43:21,143,86,Washington
-294,21:43:21,138,128,Indianapolis
-295,21:43:21,82,89,Salt Lake City
-296,20:43:21,86,130,New Orleans
-297,21:43:21,110,89,Minneapolis
-298,22:43:21,91,91,New Orleans
-299,22:43:21,117,122,Chicago
-300,22:43:21,123,93,Oklahoma City
-301,21:43:21,92,113,Cleveland
-302,19:43:21,117,99,Memphis
-303,20:43:21,132,120,Minneapolis
-304,19:43:21,148,85,Houston
-305,22:43:21,82,142,Boston
-306,22:43:21,106,110,Miami
-307,22:43:21,123,146,Pheonix
-308,19:43:21,104,127,Orlando
-309,18:43:21,127,136,Atlanta
-310,21:43:21,110,101,Pheonix
-311,22:43:21,141,104,New Orleans
-312,20:43:21,88,150,Charlotte
-313,18:43:21,101,89,Salt Lake City
-314,22:43:21,84,83,Minneapolis
-315,21:43:21,99,109,Cleveland
-316,18:43:21,99,150,Philadelphia
-317,19:43:21,133,106,Toronto
-318,18:43:21,91,85,San Antonio
-319,19:43:21,124,107,Orlando
-320,22:43:21,82,136,Dallas
-321,19:43:21,101,82,Cleveland
-322,18:43:21,134,150,Charlotte
-323,21:43:21,124,150,Toronto
-324,20:43:21,150,121,New Orleans
-325,21:43:21,96,110,Miami
-326,18:43:21,115,134,Sacramento
-327,19:43:21,125,129,New Orleans
-328,21:43:21,121,128,Portland
-329,19:43:21,114,96,Detroit
-330,20:43:21,97,112,Dallas
-331,22:43:21,80,110,Pheonix
-332,19:43:21,128,107,Washington
-333,19:43:21,93,112,Houston
-334,20:43:21,98,83,Detroit
-335,21:43:21,147,104,Memphis
-336,20:43:21,147,85,Minneapolis
-337,20:43:21,130,141,San Antonio
-338,18:43:21,133,98,Detroit
-339,18:43:21,99,106,Atlanta
-340,21:43:21,141,125,Washington
-341,21:43:21,83,143,Orlando
-342,22:43:21,123,111,Indianapolis
-343,20:43:21,84,123,New Orleans
-344,18:43:21,144,102,Brooklyn
-345,18:43:21,101,86,New Orleans
-346,19:43:21,111,97,Milwaukee
-347,22:43:21,91,149,Brooklyn
-348,18:43:21,124,126,Philadelphia
-349,19:43:21,101,133,Atlanta
-350,22:43:21,125,129,Atlanta
-351,21:43:21,102,143,Miami
-352,19:43:21,132,133,Chicago
-353,19:43:21,126,107,Washington
-354,21:43:21,143,119,Philadelphia
-355,19:43:21,144,87,Atlanta
-356,22:43:21,117,80,Atlanta
-357,22:43:21,95,148,Los Angeles
-358,19:43:21,140,86,San Antonio
-359,19:43:21,99,106,Pheonix
-360,21:43:21,101,128,Memphis
-361,20:43:21,87,107,San Antonio
-362,21:43:21,136,100,Pheonix
-363,19:43:21,148,150,Oklahoma City
-364,18:43:21,93,101,Orlando
-365,21:43:21,114,133,Charlotte
-366,19:43:21,85,122,Philadelphia
-367,22:43:21,133,127,Chicago
-368,19:43:21,134,112,Sacramento
-369,22:43:21,137,118,Cleveland
-370,18:43:21,149,98,Milwaukee
-371,20:43:21,128,148,Atlanta
-372,21:43:21,138,131,Los Angeles
-373,19:43:21,121,96,Atlanta
-374,18:43:21,136,112,Memphis
-375,21:43:21,130,136,Sacramento
-376,18:43:21,99,81,New York
-377,19:43:21,130,88,Dallas
-378,21:43:21,109,126,Chicago
-379,22:43:21,100,107,Oklahoma City
-380,18:43:21,104,131,Los Angeles
-381,20:43:21,105,150,Charlotte
-382,20:43:21,145,98,Pheonix
-383,19:43:21,104,99,Portland
-384,22:43:21,110,120,Indianapolis
-385,18:43:21,96,102,San Antonio
-386,20:43:21,143,139,Orlando
-387,20:43:21,103,86,Dallas
-388,21:43:21,91,135,Charlotte
-389,22:43:21,85,117,Washington
-390,20:43:21,131,135,Milwaukee
-391,21:43:21,128,91,Oklahoma City
-392,19:43:21,111,80,Brooklyn
-393,22:43:21,82,113,Chicago
-394,18:43:21,114,126,Washington
-395,22:43:21,123,143,Atlanta
-396,21:43:21,88,144,Chicago
-397,20:43:21,145,116,Chicago
-398,22:43:21,91,93,Denver
-399,18:43:21,146,109,San Antonio
-400,22:43:21,102,112,Dallas
-401,21:43:21,144,125,Detroit
-402,21:43:21,85,149,Atlanta
-403,18:43:21,96,82,Atlanta
-404,20:43:21,134,113,Brooklyn
-405,20:43:21,136,117,Milwaukee
-406,22:43:21,143,105,Philadelphia
-407,22:43:21,96,132,New Orleans
-408,18:43:21,101,88,Boston
-409,18:43:21,135,82,Dallas
-410,20:43:21,105,100,Minneapolis
-411,18:43:21,98,120,Atlanta
-412,19:43:21,134,114,Sacramento
-413,19:43:21,131,127,Detroit
-414,19:43:21,139,101,San Francisco
-415,22:43:21,104,149,Atlanta
-416,21:43:21,129,82,Chicago
-417,22:43:21,110,149,Pheonix
-418,18:43:21,104,114,Salt Lake City
-419,18:43:21,87,147,Orlando
-420,22:43:21,149,106,Detroit
-421,21:43:21,105,146,Los Angeles
-422,19:43:21,80,81,New Orleans
-423,22:43:21,140,118,Cleveland
-424,19:43:21,114,129,Memphis
-425,21:43:21,100,128,Pheonix
-426,21:43:21,88,115,New Orleans
-427,20:43:21,125,125,Chicago
-428,18:43:21,125,141,Minneapolis
-429,22:43:21,107,133,Orlando
-430,18:43:21,142,108,Miami
-431,22:43:21,120,117,Washington
-432,19:43:21,126,117,San Francisco
-433,18:43:21,105,127,Toronto
-434,20:43:21,110,86,Portland
-435,19:43:21,136,91,Pheonix
-436,22:43:21,125,122,Detroit
-437,21:43:21,137,127,Charlotte
-438,19:43:21,128,134,Brooklyn
-439,18:43:21,108,125,New Orleans
-440,22:43:21,145,116,Boston
-441,21:43:21,107,130,Dallas
-442,18:43:21,100,147,Pheonix
-443,22:43:21,138,87,Portland
-444,19:43:21,149,123,New Orleans
-445,18:43:21,97,85,Pheonix
-446,22:43:21,96,96,Sacramento
-447,21:43:21,128,129,Houston
-448,22:43:21,109,137,Portland
-449,20:43:21,118,142,Boston
-450,22:43:21,135,91,Indianapolis
-451,22:43:21,139,147,San Francisco
-452,22:43:21,123,125,Chicago
-453,22:43:21,150,138,Brooklyn
-454,22:43:21,100,94,Detroit
-455,18:43:21,144,134,Memphis
-456,22:43:21,111,145,Minneapolis
-457,18:43:21,110,125,Dallas
-458,21:43:21,136,117,Minneapolis
-459,21:43:21,84,129,Philadelphia
-460,18:43:21,109,150,Boston
-461,21:43:21,104,131,Detroit
-462,18:43:21,117,108,Washington
-463,19:43:21,115,149,New York
-464,19:43:21,107,131,Cleveland
-465,18:43:21,88,115,Portland
-466,19:43:21,86,99,Los Angeles
-467,20:43:21,84,133,Indianapolis
-468,20:43:21,91,116,Chicago
-469,19:43:21,108,118,Indianapolis
-470,18:43:21,121,99,Miami
-471,21:43:21,118,114,Portland
-472,21:43:21,106,118,Chicago
-473,18:43:21,106,103,Portland
-474,21:43:21,96,98,Oklahoma City
-475,21:43:21,131,114,San Francisco
-476,20:43:21,108,135,Indianapolis
-477,18:43:21,111,138,Houston
-478,19:43:21,141,144,Sacramento
-479,21:43:21,87,109,Atlanta
-480,21:43:21,103,83,Memphis
-481,22:43:21,124,116,Philadelphia
-482,21:43:21,90,121,Sacramento
-483,21:43:21,147,108,New York
-484,18:43:21,133,115,Los Angeles
-485,19:43:21,112,127,San Antonio
-486,18:43:21,139,120,Portland
-487,22:43:21,112,115,Oklahoma City
-488,21:43:21,113,124,Chicago
-489,21:43:21,81,129,Toronto
-490,19:43:21,107,97,Charlotte
-491,19:43:21,90,144,Indianapolis
-492,19:43:21,99,82,Cleveland
-493,19:43:21,120,116,Sacramento
-494,21:43:21,101,122,Washington
-495,20:43:21,88,136,Los Angeles
-496,21:43:21,102,114,Philadelphia
-497,22:43:21,129,103,San Francisco
-498,18:43:21,103,102,Boston
-499,19:43:21,86,80,Houston
-500,18:43:21,113,88,San Francisco
+matchTime,homeScore,awayScore,location
+22:43:21,100,118,Charlotte
+22:43:21,91,115,San Antonio
+19:43:21,133,91,Minneapolis
+22:43:21,134,92,San Antonio
+22:43:21,135,148,Brooklyn
+20:43:21,132,103,New York
+19:43:21,117,123,Minneapolis
+20:43:21,112,107,Los Angeles
+21:43:21,111,88,Orlando
+21:43:21,96,138,Brooklyn
+21:43:21,122,150,Boston
+20:43:21,97,86,Miami
+19:43:21,117,110,Memphis
+22:43:21,132,143,Miami
+19:43:21,129,129,Miami
+21:43:21,136,138,Salt Lake City
+22:43:21,85,87,Cleveland
+21:43:21,144,116,Atlanta
+19:43:21,118,142,Denver
+19:43:21,114,122,Boston
+21:43:21,113,102,Portland
+22:43:21,101,143,Minneapolis
+18:43:21,83,141,San Antonio
+21:43:21,114,116,Miami
+19:43:21,144,117,Cleveland
+19:43:21,111,108,Pheonix
+20:43:21,115,129,Orlando
+19:43:21,124,80,Cleveland
+18:43:21,133,133,Milwaukee
+18:43:21,114,92,Philadelphia
+18:43:21,85,150,Dallas
+19:43:21,131,139,San Francisco
+22:43:21,125,121,Sacramento
+21:43:21,96,92,Minneapolis
+22:43:21,105,81,Washington
+19:43:21,81,140,Los Angeles
+20:43:21,110,131,Dallas
+20:43:21,98,103,Boston
+21:43:21,91,149,Detroit
+18:43:21,80,81,Cleveland
+22:43:21,114,81,Sacramento
+21:43:21,96,126,Atlanta
+20:43:21,131,92,Sacramento
+20:43:21,102,97,Oklahoma City
+20:43:21,141,127,Salt Lake City
+21:43:21,103,141,Indianapolis
+20:43:21,121,89,Toronto
+19:43:21,109,83,Los Angeles
+19:43:21,107,100,Philadelphia
+18:43:21,120,119,Orlando
+20:43:21,146,110,Milwaukee
+19:43:21,83,86,Charlotte
+20:43:21,135,98,New Orleans
+19:43:21,81,109,Pheonix
+22:43:21,126,88,Brooklyn
+20:43:21,142,103,Portland
+19:43:21,113,145,New Orleans
+20:43:21,117,146,Salt Lake City
+20:43:21,133,80,Orlando
+19:43:21,117,127,Los Angeles
+21:43:21,95,80,Orlando
+22:43:21,92,89,Boston
+18:43:21,111,114,Salt Lake City
+22:43:21,108,103,Los Angeles
+21:43:21,128,134,Denver
+19:43:21,80,101,New York
+21:43:21,139,134,Oklahoma City
+18:43:21,126,90,Salt Lake City
+18:43:21,80,108,New Orleans
+18:43:21,135,108,San Francisco
+20:43:21,103,111,Washington
+18:43:21,149,101,Sacramento
+18:43:21,126,91,Dallas
+22:43:21,91,138,Cleveland
+18:43:21,83,112,Charlotte
+20:43:21,149,97,Atlanta
+18:43:21,104,150,Miami
+21:43:21,124,109,Los Angeles
+18:43:21,128,95,Miami
+21:43:21,130,83,Los Angeles
+18:43:21,107,109,Washington
+19:43:21,137,101,Oklahoma City
+21:43:21,101,81,Chicago
+22:43:21,90,83,Milwaukee
+18:43:21,122,121,Dallas
+21:43:21,93,123,Chicago
+21:43:21,91,110,New Orleans
+19:43:21,93,94,Chicago
+22:43:21,148,141,New York
+19:43:21,145,146,Houston
+22:43:21,90,107,Boston
+21:43:21,125,112,Denver
+22:43:21,123,88,Miami
+18:43:21,132,131,Milwaukee
+18:43:21,121,89,Dallas
+20:43:21,110,109,Cleveland
+19:43:21,130,113,Boston
+19:43:21,86,137,Indianapolis
+19:43:21,132,136,Atlanta
+21:43:21,91,97,Charlotte
+19:43:21,141,112,San Antonio
+22:43:21,96,139,Philadelphia
+19:43:21,99,112,Los Angeles
+18:43:21,131,118,Brooklyn
+18:43:21,108,141,Washington
+19:43:21,82,131,Pheonix
+20:43:21,123,103,Cleveland
+22:43:21,103,106,Detroit
+20:43:21,109,135,Dallas
+19:43:21,105,88,Sacramento
+22:43:21,101,83,Cleveland
+19:43:21,86,136,New York
+22:43:21,110,82,Boston
+20:43:21,99,144,New Orleans
+18:43:21,105,108,Toronto
+22:43:21,121,148,Portland
+18:43:21,115,95,Brooklyn
+19:43:21,90,138,Los Angeles
+18:43:21,94,141,Denver
+22:43:21,118,92,San Antonio
+21:43:21,145,104,Miami
+22:43:21,132,120,Washington
+19:43:21,110,109,Charlotte
+20:43:21,92,108,Washington
+18:43:21,94,106,Dallas
+22:43:21,123,123,Indianapolis
+21:43:21,143,139,Memphis
+18:43:21,86,139,New Orleans
+18:43:21,110,113,New Orleans
+18:43:21,139,112,Atlanta
+21:43:21,109,131,Los Angeles
+19:43:21,141,96,Houston
+20:43:21,108,111,Atlanta
+19:43:21,126,130,Charlotte
+22:43:21,147,109,San Francisco
+19:43:21,89,99,Milwaukee
+19:43:21,120,99,Los Angeles
+21:43:21,100,133,Minneapolis
+18:43:21,109,121,Cleveland
+19:43:21,132,140,Pheonix
+20:43:21,91,94,Denver
+19:43:21,81,83,Brooklyn
+21:43:21,112,93,San Antonio
+19:43:21,147,105,New York
+18:43:21,128,146,Portland
+18:43:21,134,90,Detroit
+20:43:21,132,140,San Antonio
+20:43:21,82,94,San Antonio
+20:43:21,91,93,Detroit
+20:43:21,84,122,New York
+18:43:21,97,91,Los Angeles
+21:43:21,93,119,Chicago
+20:43:21,116,144,Los Angeles
+22:43:21,81,136,Memphis
+19:43:21,137,120,Memphis
+22:43:21,90,150,Chicago
+18:43:21,131,129,Toronto
+21:43:21,131,118,Salt Lake City
+20:43:21,138,80,Atlanta
+19:43:21,126,83,Cleveland
+19:43:21,107,93,Cleveland
+19:43:21,98,105,Miami
+18:43:21,139,122,Los Angeles
+22:43:21,84,85,Brooklyn
+18:43:21,135,116,Los Angeles
+21:43:21,133,144,Denver
+22:43:21,133,128,Atlanta
+18:43:21,137,109,Denver
+21:43:21,109,96,Portland
+18:43:21,138,134,Portland
+20:43:21,81,91,Chicago
+19:43:21,142,83,Charlotte
+21:43:21,122,114,Pheonix
+20:43:21,104,142,Minneapolis
+20:43:21,91,103,San Francisco
+18:43:21,133,89,Brooklyn
+20:43:21,130,117,Orlando
+20:43:21,99,146,Philadelphia
+21:43:21,87,123,Houston
+18:43:21,92,97,Chicago
+21:43:21,94,97,San Antonio
+19:43:21,117,147,Dallas
+19:43:21,108,143,Minneapolis
+19:43:21,124,97,Philadelphia
+20:43:21,126,113,Milwaukee
+22:43:21,134,141,Chicago
+20:43:21,122,97,Pheonix
+18:43:21,116,122,Philadelphia
+19:43:21,138,142,San Francisco
+22:43:21,81,113,Pheonix
+19:43:21,101,99,Portland
+18:43:21,126,121,Portland
+20:43:21,123,92,San Francisco
+22:43:21,91,133,Miami
+19:43:21,142,116,Dallas
+18:43:21,96,89,Brooklyn
+22:43:21,142,97,Detroit
+22:43:21,111,105,Chicago
+22:43:21,119,146,Pheonix
+20:43:21,103,130,Washington
+22:43:21,140,105,San Francisco
+19:43:21,86,147,Salt Lake City
+18:43:21,96,95,Orlando
+18:43:21,90,148,Sacramento
+18:43:21,91,90,New Orleans
+22:43:21,81,95,New Orleans
+21:43:21,145,87,Miami
+21:43:21,114,108,Dallas
+20:43:21,99,115,New York
+19:43:21,97,99,New York
+18:43:21,109,119,Boston
+22:43:21,92,94,Denver
+21:43:21,100,137,Salt Lake City
+20:43:21,102,126,Denver
+19:43:21,117,146,Denver
+18:43:21,89,96,Miami
+21:43:21,105,127,New York
+20:43:21,102,109,Minneapolis
+18:43:21,87,150,Houston
+18:43:21,133,80,Milwaukee
+19:43:21,126,87,Atlanta
+21:43:21,112,81,Los Angeles
+21:43:21,107,119,Boston
+22:43:21,106,121,Houston
+20:43:21,121,146,Salt Lake City
+19:43:21,117,144,New York
+19:43:21,131,103,Oklahoma City
+19:43:21,123,130,Indianapolis
+20:43:21,113,127,Denver
+20:43:21,141,124,Detroit
+22:43:21,138,128,Indianapolis
+21:43:21,136,105,Dallas
+20:43:21,145,106,Charlotte
+20:43:21,130,143,Orlando
+20:43:21,91,116,Oklahoma City
+21:43:21,98,142,Oklahoma City
+22:43:21,113,128,Minneapolis
+19:43:21,131,91,Indianapolis
+19:43:21,120,97,Brooklyn
+18:43:21,93,148,Boston
+21:43:21,103,128,Milwaukee
+21:43:21,90,101,Salt Lake City
+22:43:21,113,82,Memphis
+21:43:21,101,120,Oklahoma City
+18:43:21,112,86,Minneapolis
+18:43:21,113,148,Atlanta
+18:43:21,124,91,Indianapolis
+20:43:21,108,109,Brooklyn
+19:43:21,106,94,New York
+22:43:21,145,116,Detroit
+22:43:21,134,144,Detroit
+22:43:21,116,95,Memphis
+19:43:21,139,125,Memphis
+19:43:21,80,98,Pheonix
+21:43:21,93,98,Portland
+20:43:21,125,134,Charlotte
+21:43:21,104,147,Denver
+18:43:21,94,111,New York
+19:43:21,118,131,Sacramento
+22:43:21,149,149,Detroit
+18:43:21,132,121,New York
+20:43:21,118,124,Denver
+21:43:21,92,88,Orlando
+22:43:21,132,148,Los Angeles
+20:43:21,117,127,Dallas
+21:43:21,81,137,Memphis
+18:43:21,106,150,Milwaukee
+22:43:21,82,101,Houston
+20:43:21,106,106,Chicago
+21:43:21,105,94,Toronto
+18:43:21,97,148,Indianapolis
+19:43:21,147,91,Portland
+21:43:21,107,94,Sacramento
+19:43:21,93,132,Washington
+21:43:21,136,88,Washington
+20:43:21,141,94,Houston
+22:43:21,127,123,Los Angeles
+22:43:21,122,114,Indianapolis
+19:43:21,103,104,Detroit
+22:43:21,116,125,Toronto
+18:43:21,81,122,San Francisco
+19:43:21,119,92,Oklahoma City
+21:43:21,114,114,Detroit
+22:43:21,123,120,Sacramento
+19:43:21,114,139,San Francisco
+18:43:21,85,123,Philadelphia
+22:43:21,148,138,Toronto
+18:43:21,137,108,Detroit
+21:43:21,150,139,Houston
+18:43:21,136,137,Milwaukee
+21:43:21,110,113,Portland
+18:43:21,128,86,Atlanta
+20:43:21,143,86,Washington
+21:43:21,138,128,Indianapolis
+21:43:21,82,89,Salt Lake City
+20:43:21,86,130,New Orleans
+21:43:21,110,89,Minneapolis
+22:43:21,91,91,New Orleans
+22:43:21,117,122,Chicago
+22:43:21,123,93,Oklahoma City
+21:43:21,92,113,Cleveland
+19:43:21,117,99,Memphis
+20:43:21,132,120,Minneapolis
+19:43:21,148,85,Houston
+22:43:21,82,142,Boston
+22:43:21,106,110,Miami
+22:43:21,123,146,Pheonix
+19:43:21,104,127,Orlando
+18:43:21,127,136,Atlanta
+21:43:21,110,101,Pheonix
+22:43:21,141,104,New Orleans
+20:43:21,88,150,Charlotte
+18:43:21,101,89,Salt Lake City
+22:43:21,84,83,Minneapolis
+21:43:21,99,109,Cleveland
+18:43:21,99,150,Philadelphia
+19:43:21,133,106,Toronto
+18:43:21,91,85,San Antonio
+19:43:21,124,107,Orlando
+22:43:21,82,136,Dallas
+19:43:21,101,82,Cleveland
+18:43:21,134,150,Charlotte
+21:43:21,124,150,Toronto
+20:43:21,150,121,New Orleans
+21:43:21,96,110,Miami
+18:43:21,115,134,Sacramento
+19:43:21,125,129,New Orleans
+21:43:21,121,128,Portland
+19:43:21,114,96,Detroit
+20:43:21,97,112,Dallas
+22:43:21,80,110,Pheonix
+19:43:21,128,107,Washington
+19:43:21,93,112,Houston
+20:43:21,98,83,Detroit
+21:43:21,147,104,Memphis
+20:43:21,147,85,Minneapolis
+20:43:21,130,141,San Antonio
+18:43:21,133,98,Detroit
+18:43:21,99,106,Atlanta
+21:43:21,141,125,Washington
+21:43:21,83,143,Orlando
+22:43:21,123,111,Indianapolis
+20:43:21,84,123,New Orleans
+18:43:21,144,102,Brooklyn
+18:43:21,101,86,New Orleans
+19:43:21,111,97,Milwaukee
+22:43:21,91,149,Brooklyn
+18:43:21,124,126,Philadelphia
+19:43:21,101,133,Atlanta
+22:43:21,125,129,Atlanta
+21:43:21,102,143,Miami
+19:43:21,132,133,Chicago
+19:43:21,126,107,Washington
+21:43:21,143,119,Philadelphia
+19:43:21,144,87,Atlanta
+22:43:21,117,80,Atlanta
+22:43:21,95,148,Los Angeles
+19:43:21,140,86,San Antonio
+19:43:21,99,106,Pheonix
+21:43:21,101,128,Memphis
+20:43:21,87,107,San Antonio
+21:43:21,136,100,Pheonix
+19:43:21,148,150,Oklahoma City
+18:43:21,93,101,Orlando
+21:43:21,114,133,Charlotte
+19:43:21,85,122,Philadelphia
+22:43:21,133,127,Chicago
+19:43:21,134,112,Sacramento
+22:43:21,137,118,Cleveland
+18:43:21,149,98,Milwaukee
+20:43:21,128,148,Atlanta
+21:43:21,138,131,Los Angeles
+19:43:21,121,96,Atlanta
+18:43:21,136,112,Memphis
+21:43:21,130,136,Sacramento
+18:43:21,99,81,New York
+19:43:21,130,88,Dallas
+21:43:21,109,126,Chicago
+22:43:21,100,107,Oklahoma City
+18:43:21,104,131,Los Angeles
+20:43:21,105,150,Charlotte
+20:43:21,145,98,Pheonix
+19:43:21,104,99,Portland
+22:43:21,110,120,Indianapolis
+18:43:21,96,102,San Antonio
+20:43:21,143,139,Orlando
+20:43:21,103,86,Dallas
+21:43:21,91,135,Charlotte
+22:43:21,85,117,Washington
+20:43:21,131,135,Milwaukee
+21:43:21,128,91,Oklahoma City
+19:43:21,111,80,Brooklyn
+22:43:21,82,113,Chicago
+18:43:21,114,126,Washington
+22:43:21,123,143,Atlanta
+21:43:21,88,144,Chicago
+20:43:21,145,116,Chicago
+22:43:21,91,93,Denver
+18:43:21,146,109,San Antonio
+22:43:21,102,112,Dallas
+21:43:21,144,125,Detroit
+21:43:21,85,149,Atlanta
+18:43:21,96,82,Atlanta
+20:43:21,134,113,Brooklyn
+20:43:21,136,117,Milwaukee
+22:43:21,143,105,Philadelphia
+22:43:21,96,132,New Orleans
+18:43:21,101,88,Boston
+18:43:21,135,82,Dallas
+20:43:21,105,100,Minneapolis
+18:43:21,98,120,Atlanta
+19:43:21,134,114,Sacramento
+19:43:21,131,127,Detroit
+19:43:21,139,101,San Francisco
+22:43:21,104,149,Atlanta
+21:43:21,129,82,Chicago
+22:43:21,110,149,Pheonix
+18:43:21,104,114,Salt Lake City
+18:43:21,87,147,Orlando
+22:43:21,149,106,Detroit
+21:43:21,105,146,Los Angeles
+19:43:21,80,81,New Orleans
+22:43:21,140,118,Cleveland
+19:43:21,114,129,Memphis
+21:43:21,100,128,Pheonix
+21:43:21,88,115,New Orleans
+20:43:21,125,125,Chicago
+18:43:21,125,141,Minneapolis
+22:43:21,107,133,Orlando
+18:43:21,142,108,Miami
+22:43:21,120,117,Washington
+19:43:21,126,117,San Francisco
+18:43:21,105,127,Toronto
+20:43:21,110,86,Portland
+19:43:21,136,91,Pheonix
+22:43:21,125,122,Detroit
+21:43:21,137,127,Charlotte
+19:43:21,128,134,Brooklyn
+18:43:21,108,125,New Orleans
+22:43:21,145,116,Boston
+21:43:21,107,130,Dallas
+18:43:21,100,147,Pheonix
+22:43:21,138,87,Portland
+19:43:21,149,123,New Orleans
+18:43:21,97,85,Pheonix
+22:43:21,96,96,Sacramento
+21:43:21,128,129,Houston
+22:43:21,109,137,Portland
+20:43:21,118,142,Boston
+22:43:21,135,91,Indianapolis
+22:43:21,139,147,San Francisco
+22:43:21,123,125,Chicago
+22:43:21,150,138,Brooklyn
+22:43:21,100,94,Detroit
+18:43:21,144,134,Memphis
+22:43:21,111,145,Minneapolis
+18:43:21,110,125,Dallas
+21:43:21,136,117,Minneapolis
+21:43:21,84,129,Philadelphia
+18:43:21,109,150,Boston
+21:43:21,104,131,Detroit
+18:43:21,117,108,Washington
+19:43:21,115,149,New York
+19:43:21,107,131,Cleveland
+18:43:21,88,115,Portland
+19:43:21,86,99,Los Angeles
+20:43:21,84,133,Indianapolis
+20:43:21,91,116,Chicago
+19:43:21,108,118,Indianapolis
+18:43:21,121,99,Miami
+21:43:21,118,114,Portland
+21:43:21,106,118,Chicago
+18:43:21,106,103,Portland
+21:43:21,96,98,Oklahoma City
+21:43:21,131,114,San Francisco
+20:43:21,108,135,Indianapolis
+18:43:21,111,138,Houston
+19:43:21,141,144,Sacramento
+21:43:21,87,109,Atlanta
+21:43:21,103,83,Memphis
+22:43:21,124,116,Philadelphia
+21:43:21,90,121,Sacramento
+21:43:21,147,108,New York
+18:43:21,133,115,Los Angeles
+19:43:21,112,127,San Antonio
+18:43:21,139,120,Portland
+22:43:21,112,115,Oklahoma City
+21:43:21,113,124,Chicago
+21:43:21,81,129,Toronto
+19:43:21,107,97,Charlotte
+19:43:21,90,144,Indianapolis
+19:43:21,99,82,Cleveland
+19:43:21,120,116,Sacramento
+21:43:21,101,122,Washington
+20:43:21,88,136,Los Angeles
+21:43:21,102,114,Philadelphia
+22:43:21,129,103,San Francisco
+18:43:21,103,102,Boston
+19:43:21,86,80,Houston
+18:43:21,113,88,San Francisco
