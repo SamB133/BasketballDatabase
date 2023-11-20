@@ -3,7 +3,11 @@
 
 <head>
     <title>4347 Database Project</title>
+    <link rel="stylesheet" href="./styles/style.css"/>
+    <link rel="stylesheet" href="./styles/alterData.css"/>
+
     <style>
+        
         div {
             margin-bottom: 10px;
         }
@@ -150,6 +154,7 @@
 
     async function getSubmission() {
         // Get the values from the form section according to the dropdown selection
+
         const taskSelector = document.getElementById("taskSelector").value
         const tableSelector = document.getElementById("tableSelector").value
         const inputs = Array.from(document.getElementById(tableSelector).children).filter(node => node.nodeName == "INPUT")
@@ -164,14 +169,15 @@
                 alteringFormValues[input.name] = input.value
             }
         }
+       console.log(`TASK SELECTOR HERE ${taskSelector}`);
 
-        console.log(alteringFormValues)
-        console.log(url)
+       console.log(`ALTERING FORM VALUES ${alteringFormValues}`)
+       console.log(`URL IS HERE ${url}`)
         let res = await fetch(url + '?' + new URLSearchParams(alteringFormValues), {
             method: taskSelector
         })
         let data = await res.json()
-        console.log(data)
+       console.log(`DATA IS HERE ${data}`)
     }
 </script>
 
