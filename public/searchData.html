@@ -84,15 +84,15 @@
         <label for="typeSelection">Choose a search type:</label>
         <select name="TypeSelection" id="typeSelection" onchange="changeTableDropdown()">
             <option value="default">Choose Type</option>
-            <option value="playerDropdown">Player</option>
-            <option value="participatedInDropdown">Participated In</option>
-            <option value="matchDropdown">Match</option>
-            <option value="playedInDropdown">Played In</option>
-            <option value="managerDropdown">Manager</option>
+            <option value="player">Player</option>
+            <option value="participatedIn">Participated In</option>
+            <option value="match">Match</option>
+            <option value="playedIn">Played In</option>
+            <option value="manager">Manager</option>
         </select>
 
         <!-- If 'Player' is selected -->
-        <div id="playerDropdown">
+        <div id="player">
             <label for="playerID">Player ID</label>
             <input type="text" id="playerID" name="playerID" placeholder="Player ID" size="30"><br>
             <label for="fName">First Name</label>
@@ -108,7 +108,7 @@
         </div>
 
         <!-- If 'Participated In' is selected -->
-        <div id="participatedInDropdown">
+        <div id="participatedIn">
             <label for="playerID">Player ID</label>
             <input type="text" id="playerID" name="playerID" placeholder="Player ID" size="30"><br>
             <label for="matchNum">Match Number</label>
@@ -126,7 +126,7 @@
         </div>
 
         <!-- If 'Match' is selected -->
-        <div id="matchDropdown">
+        <div id="match">
             <label for="matchNum">Match Number</label>
             <input type="text" id="matchNum" name="matchNum" placeholder="Match Number" size="30"><br>
             <label for="time">Time</label>
@@ -140,7 +140,7 @@
         </div>
 
         <!-- If 'Played In' is selected -->
-        <div id="playedInDropdown">
+        <div id="playedIn">
             <label for="Mnum">Match Number</label>
             <input type="text" id="Mnum" name="Mnum" placeholder="Match Number" size="30"><br>
             <label for="homeTeam">Home Team</label>
@@ -150,7 +150,7 @@
         </div>
 
         <!-- If 'Manager' is selected -->
-        <div id="managerDropdown">
+        <div id="manager">
             <label for="managerID">managerID</label>
             <input type="text" id="managerID" name="managerID" placeholder="managerID" size="30"><br>
             <label for="tName">Team Name</label>
@@ -182,11 +182,11 @@
     }
 
     function changeTableDropdown() {
-        document.getElementById("playerDropdown").style.display = typeSelection.value == "playerDropdown" ? "block" : "none"
-        document.getElementById("matchDropdown").style.display = typeSelection.value == "matchDropdown" ? "block" : "none"
-        document.getElementById("participatedInDropdown").style.display = typeSelection.value == "participatedInDropdown" ? "block" : "none"
-        document.getElementById("playedInDropdown").style.display = typeSelection.value == "playedInDropdown" ? "block" : "none"
-        document.getElementById("managerDropdown").style.display = typeSelection.value == "managerDropdown" ? "block" : "none"
+        document.getElementById("player").style.display = typeSelection.value == "playerDropdown" ? "block" : "none"
+        document.getElementById("match").style.display = typeSelection.value == "matchDropdown" ? "block" : "none"
+        document.getElementById("participatedIn").style.display = typeSelection.value == "participatedInDropdown" ? "block" : "none"
+        document.getElementById("playedIn").style.display = typeSelection.value == "playedInDropdown" ? "block" : "none"
+        document.getElementById("manager").style.display = typeSelection.value == "managerDropdown" ? "block" : "none"
         document.getElementById("searchButtons").style.display = typeSelection.value != "default" ? "block" : "none"
         document.getElementById("resultsWindow").style.display = "none"
     }
