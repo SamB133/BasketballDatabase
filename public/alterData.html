@@ -46,7 +46,7 @@
     <form id="alteringForm">
         <!-- Task  Selector -->
         <label for="taskSelector">Choose the task type you wish to conduct:</label>
-        <select name="TaskSelector" id="taskSelector">
+        <select name="TaskSelector" id="taskSelector" onchange="changeTable(this.value)">
             <option value="default" selected disabled hidden>Choose Task</option>
             <option value="POST">Create</option>
             <option value="PATCH">Update</option>
