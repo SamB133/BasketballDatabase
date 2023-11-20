@@ -3,10 +3,11 @@
 
 <head>
     <title>4347 Database Project</title>
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/alterData.css" />
+    <link rel="stylesheet" href="./styles/style.css"/>
+    <link rel="stylesheet" href="./styles/alterData.css"/>
 
     <style>
+        
         div {
             margin-bottom: 10px;
         }
@@ -16,6 +17,21 @@
             width: 150px;
             text-align: right;
         }
+		
+		#tableSelector {
+			margin-bottom: 15px;
+		}
+		
+		#submitButtons {
+			margin-top: 10px;
+			position: relative;
+			left: 154px;
+		}
+		
+		#clearButton {
+			position: relative;
+			left: 138px;
+		}	
     </style>
 </head>
 
@@ -116,8 +132,6 @@
 
         <!-- If 'Manager' is selected -->
         <div id="manager">
-            <label for="managerID">managerID</label>
-            <input type="text" id="managerID" name="managerID" placeholder="managerID" size="30"><br>
             <label for="tName">Team Name</label>
             <input type="text" id="tName" name="Tname" placeholder="Team Name" size="30"><br>
             <label for="fName">First Name</label>
@@ -128,8 +142,11 @@
             <input type="text" id="birthday" name="birthday" placeholder="yyyy-mm-dd" size="30"><br>
         </div>
     </form>
-
-    <button onclick="getSubmission(), resetForm()" id="submitButton">Submit</button><br>
+	
+	<div id="submitButtons">
+		<button onclick="getSubmission(), resetForm()" id="submitButton">Submit</button>
+		<button onclick="clearForm()" id="clearButton">Clear</button>
+	</div>
 </body>
 
 <script>
@@ -145,12 +162,22 @@
         document.getElementById("playedIn").style.display = tableSelector.value == "playedIn" ? "block" : "none"
         document.getElementById("team").style.display = tableSelector.value == "team" ? "block" : "none"
         document.getElementById("manager").style.display = tableSelector.value == "manager" ? "block" : "none"
-    }
+		document.getElementById("submitButtons").style.display = tableSelector.value != "default"  && taskSelector.value != "default" ? "block" : "none"
+	}
 
     function resetForm() {
         const alteringForm = document.getElementById("alteringForm")
         alteringForm.reset()
         changeTable("default")
+    }
+	
+	function clearForm() {
+        const alteringForm = document.getElementById("alteringForm")
+		let temp = document.getElementById("taskSelector").value
+		let temp2 = document.getElementById("tableSelector").value
+        alteringForm.reset()
+		document.getElementById("taskSelector").value = temp
+		document.getElementById("tableSelector").value = temp2
     }
 
     async function getSubmission() {
@@ -170,12 +197,24 @@
                 alteringFormValues[input.name] = input.value
             }
         }
+       console.log(`TASK SELECTOR HERE ${taskSelector}`);
 
+       console.log(`ALTERING FORM VALUES ${alteringFormValues}`)
+       console.log(`URL IS HERE ${url}`)
         let res = await fetch(url + '?' + new URLSearchParams(alteringFormValues), {
             method: taskSelector
         })
         let data = await res.json()
+       console.log(`DATA IS HERE ${data}`)
     }
+	
+	document.addEventListener("keydown", function(event) {
+		if (event.code === "Enter"){
+			getSubmission()
+		} else if (event.code === "Delete"){
+			clearForm()
+		}
+	}, true)
 </script>
 
 </html>
