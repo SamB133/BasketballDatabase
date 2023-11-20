@@ -46,7 +46,7 @@
     <form id="alteringForm">
         <!-- Task  Selector -->
         <label for="taskSelector">Choose the task type you wish to conduct:</label>
-        <select name="TaskSelector" id="taskSelector" onchange="changeTable(), changeTask(this.value)">
+        <select name="TaskSelector" id="taskSelector" onchange="changeTable(), changeTask()">
             <option value="default" selected disabled hidden>Choose Task</option>
             <option value="POST">Create</option>
             <option value="PATCH">Update</option>
@@ -157,19 +157,19 @@
         changeTable()
     }
 
-    function changeTask(selection) {
-        document.getElementById("playerID").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("playerIDPI").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("matchNum").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("teamID").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("Mnum").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("managerID").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("PID").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("PIDPI").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("MMN").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("PIMN").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("TTID").style.display = taskSelector.value == "POST" ? "none" : "block"
-        document.getElementById("MMID").style.display = taskSelector.value == "POST" ? "none" : "block"
+    function changeTask() {
+        // document.getElementById("playerID").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("playerIDPI").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("matchNum").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("teamID").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("Mnum").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("managerID").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("PID").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("PIDPI").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("MMN").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("PIMN").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("TTID").style.display = taskSelector.value == "POST" ? "none" : "block"
+        // document.getElementById("MMID").style.display = taskSelector.value == "POST" ? "none" : "block"
     }
 
     function changeTable() {
