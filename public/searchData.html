@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="./styles/searchData.css" />
 
     <style>
-       
-       div {
+        div {
             margin-bottom: 10px;
         }
 
@@ -17,6 +16,7 @@
             width: 150px;
             text-align: right;
         }
+
         #noMatches {
             visibility: hidden;
             color: red;
@@ -132,6 +132,7 @@
 
     <h1 id="noMatches">No Matches Found</h1>
 </body>
+
 <script>
     onload = function () {
         changeTableDropdown()
@@ -145,6 +146,7 @@
         document.getElementById("manager").style.display = typeSelection.value == "manager" ? "block" : "none"
         document.getElementById("searchButtons").style.display = typeSelection.value != "default" ? "block" : "none"
         document.getElementById("resultsWindow").style.display = "none"
+        document.getElementById("noMatches").style.visibility = "hidden";
     }
 
     function resetForm() {
@@ -161,19 +163,18 @@
     }
 
     function formatDate(isoDateString) {
-    const date = new Date(isoDateString);
-    let month = '' + (date.getMonth() + 1), 
-        day = '' + date.getDate(),
-        year = date.getFullYear().toString().substr(-2); 
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
+        const date = new Date(isoDateString);
+        let month = '' + (date.getMonth() + 1),
+            day = '' + date.getDate(),
+            year = date.getFullYear().toString().substr(-2);
 
-    return [month, day, year].join('-');
-}
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
 
-
+        return [month, day, year].join('-');
+    }
 
     async function getQuerySubmission() {
         // Get the values from the form section according to the dropdown selection
@@ -191,62 +192,58 @@
             }
         }
 
-        console.log(queryFormValues)
-        console.log(url)
-
         let res = await fetch(url + '?' + new URLSearchParams(queryFormValues))
         let data = await res.json()
-        console.log(data)
+        resetForm()
 
         if (data && Array.isArray(data)) {
             displayQueryResults(data);
-        }  else {
-        console.error('No data received or data is not in expected format');
+        } else {
+            console.error('No data received or data is not in expected format');
         }
     }
 
     function displayQueryResults(data) {
-    const tableWindow = document.getElementById("tableWindow");
-    tableWindow.innerHTML = ''; // Clear previous results
+        const tableWindow = document.getElementById("tableWindow");
+        tableWindow.innerHTML = ''; // Clear previous results
 
-    if (Object.keys(data).length === 0) {
-        document.getElementById("noMatches").style.visibility = "visible";
-    } else {
-        let table = document.createElement("table");
-        let thead = document.createElement("thead");
-        let headerRow = document.createElement("tr");
+        if (Object.keys(data).length === 0) {
+            document.getElementById("noMatches").style.visibility = "visible";
+        } else {
+            let table = document.createElement("table");
+            let thead = document.createElement("thead");
+            let headerRow = document.createElement("tr");
 
-        // Assuming first row has headers
-        Object.keys(data[0]).forEach(header => {
-            let th = document.createElement("th");
-            th.textContent = header;
-            headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
-
-        // Body of the table
-        data.forEach(row => {
-            let tr = document.createElement("tr");
-            Object.values(row).forEach((value, index) => {
-                let td = document.createElement("td");
-                // Format the date if it's in the expected column index
-                // Assuming the date is in the fourth column (index 3)
-                if (index === 3) { 
-                    td.textContent = formatDate(value);
-                } else {
-                    td.textContent = value;
-                }
-                tr.appendChild(td);
+            // Assuming first row has headers
+            Object.keys(data[0]).forEach(header => {
+                let th = document.createElement("th");
+                th.textContent = header;
+                headerRow.appendChild(th);
             });
-            table.appendChild(tr);
-        });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
 
-        tableWindow.appendChild(table);
-        document.getElementById("resultsWindow").style.display = "block";
+            // Body of the table
+            data.forEach(row => {
+                let tr = document.createElement("tr");
+                Object.values(row).forEach((value, index) => {
+                    let td = document.createElement("td");
+                    // Format the date if it's in the expected column index
+                    // Assuming the date is in the fourth column (index 3)
+                    if (index === 3) {
+                        td.textContent = formatDate(value);
+                    } else {
+                        td.textContent = value;
+                    }
+                    tr.appendChild(td);
+                });
+                table.appendChild(tr);
+            });
+
+            tableWindow.appendChild(table);
+            document.getElementById("resultsWindow").style.display = "block";
+        }
     }
-}
-
 
     document.addEventListener("keydown", function (event) {
         if (event.code === "Enter") {
