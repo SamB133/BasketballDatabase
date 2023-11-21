@@ -18,7 +18,7 @@
         }
 
         #noMatches,
-        #invalidEntry {
+        #invalidID {
             visibility: hidden;
             color: red;
             position: relative;
@@ -132,7 +132,7 @@
     </div>
 
     <h1 id="noMatches">No Matches Found</h1>
-    <h1 id="invalidEntry">Invalid ID, Please Try Again or Try Another Field</h1>
+    <h1 id="invalidID">Invalid ID, Please Try Again or Try Another Field</h1>
 </body>
 
 <script>
@@ -149,7 +149,7 @@
         document.getElementById("searchButtons").style.display = typeSelection.value != "default" ? "block" : "none"
         document.getElementById("resultsWindow").style.display = "none"
         document.getElementById("noMatches").style.visibility = "hidden";
-        document.getElementById("invalidEntry").style.visibility = "hidden";
+        document.getElementById("invalidID").style.visibility = "hidden";
     }
 
     function resetForm() {
@@ -179,8 +179,7 @@
         return [month, day, year].join('-');
     }
 
-    function textValidation() {
-        const typeSelection = document.getElementById("typeSelection").value
+    function validateID(typeSelection) {
         const inputs = Array.from(document.getElementById(typeSelection).children).filter(node => node.nodeName == "INPUT")
         const firstInput = inputs[0]
         if (firstInput.value !== "") {
@@ -194,11 +193,11 @@
     async function getQuerySubmission() {
         // Get the values from the form section according to the dropdown selection
         const typeSelection = document.getElementById("typeSelection").value
-        if (!textValidation()) {
-            document.getElementById("invalidEntry").style.visibility = "visible";
+        if (!validateID(typeSelection)) {
+            document.getElementById("invalidID").style.visibility = "visible";
             return;
         }
-        document.getElementById("invalidEntry").style.visibility = "hidden";
+        document.getElementById("invalidID").style.visibility = "hidden";
 
         const inputs = Array.from(document.getElementById(typeSelection).children).filter(node => node.nodeName == "INPUT")
         const queryFormValues = {}
