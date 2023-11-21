@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./styles/alterData.css" />
 
     <style>
-          
         div {
             margin-bottom: 10px;
         }
@@ -16,6 +15,13 @@
             display: inline-block;
             width: 150px;
             text-align: right;
+        }
+
+        #submitted {
+            visibility: hidden;
+            color: green;
+            position: relative;
+            left: 60px;
         }
     </style>
 </head>
@@ -133,9 +139,11 @@
     </form>
 
     <div id="submitButtons">
-        <button onclick="getSubmission(), resetForm()" id="submitButton">Submit</button>
+        <button onclick="getSubmission()" id="submitButton">Submit</button>
         <button onclick="clearForm()" id="clearButton">Clear</button>
     </div>
+
+    <h1 id="submitted">Request Successfully Submitted</h1>
 </body>
 
 <script>
@@ -156,6 +164,7 @@
         // document.getElementById("PIMN").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("TTID").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("MMID").style.display = taskSelector.value == "POST" ? "none" : "block"
+        document.getElementById("submitted").style.visibility = "hidden";
     }
 
     function changeTable() {
@@ -204,6 +213,9 @@
             method: taskSelector
         })
         let data = await res.json()
+        resetForm()
+
+        document.getElementById("submitted").style.visibility = "visible";
     }
 
     document.addEventListener("keydown", function (event) {
