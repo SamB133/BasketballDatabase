@@ -23,6 +23,13 @@
             position: relative;
             left: 60px;
         }
+
+        #invalidID {
+            visibility: hidden;
+            color: red;
+            position: relative;
+            left: 60px;
+        }
     </style>
 </head>
 
@@ -144,6 +151,7 @@
     </div>
 
     <h1 id="submitted">Request Successfully Submitted</h1>
+    <h1 id="invalidID">Invalid ID, Please Try Again or Try Another Field</h1>
 </body>
 
 <script>
@@ -152,19 +160,25 @@
     }
 
     function changeTask() {
+        // Input fields
         // document.getElementById("playerID").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("playerIDPI").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("matchNum").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("teamID").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("Mnum").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("managerID").style.display = taskSelector.value == "POST" ? "none" : "block"
+
+        // Label fields
         // document.getElementById("PID").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("PIDPI").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("MMN").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("PIMN").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("TTID").style.display = taskSelector.value == "POST" ? "none" : "block"
         // document.getElementById("MMID").style.display = taskSelector.value == "POST" ? "none" : "block"
+
         document.getElementById("submitted").style.visibility = "hidden";
+        document.getElementById("invalidID").style.visibility = "hidden";
+
     }
 
     function changeTable() {
@@ -193,10 +207,27 @@
         document.getElementById("tableSelector").value = temp2
     }
 
+    function validateID(tableSelector) {
+        const inputs = Array.from(document.getElementById(tableSelector).children).filter(node => node.nodeName == "INPUT")
+        const firstInput = inputs[0]
+        if (firstInput.value !== "") {
+            if (!isNaN(firstInput.value)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     async function getSubmission() {
         // Get the values from the form section according to the dropdown selection
-        const taskSelector = document.getElementById("taskSelector").value
         const tableSelector = document.getElementById("tableSelector").value
+        if (!validateID(tableSelector)) {
+            document.getElementById("invalidID").style.visibility = "visible";
+            return;
+        }
+        document.getElementById("invalidID").style.visibility = "hidden";
+
+        const taskSelector = document.getElementById("taskSelector").value
         const inputs = Array.from(document.getElementById(tableSelector).children).filter(node => node.nodeName == "INPUT")
         const alteringFormValues = {}
         let url = `/api/${tableSelector}`;
