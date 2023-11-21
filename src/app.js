@@ -7,7 +7,7 @@ const port = 3000
 app.use(express.static('public'))
 
 const tables = ['player', 'participatedIn', 'match_', 'playedIn', 'manager']
-const idColumns = ['playerID', 'teamID', 'matchNum', 'managerID']
+const idColumns = ['playerID', 'teamID', 'matchNum', 'managerID', "Mnum"]
 
 app.get('/api/:table', (req, res) => {
     try {
@@ -20,7 +20,7 @@ app.get('/api/:table', (req, res) => {
             .map(key =>
                 `${key} LIKE '%${req.query[key]}%'`
             ).join(' AND ');
-        console.log(`SELECT * FROM ${req.params.table} ${where === '' ? '' : 'WHERE'} ${where}`)
+
         connection.query(`SELECT * FROM ${req.params.table} ${where === '' ? '' : 'WHERE'} ${where}`, function (error, results, fields) {
             if (error) return res.status(500).send({ error: error });
             res.send(results);
@@ -107,5 +107,5 @@ app.delete('/api/:table', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`CS 4347 Project app listening on port ${port}`)
 })
