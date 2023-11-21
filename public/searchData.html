@@ -17,7 +17,8 @@
             text-align: right;
         }
 
-        #noMatches {
+        #noMatches,
+        #invalidEntry {
             visibility: hidden;
             color: red;
             position: relative;
@@ -65,8 +66,8 @@
 
         <!-- If 'Participated In' is selected -->
         <div id="participatedIn">
-            <label for="playerID">Player ID</label>
-            <input type="text" id="playerID" name="playerID" placeholder="Player ID" size="30"><br>
+            <label for="playerIDPI">Player ID</label>
+            <input type="text" id="playerIDPI" name="playerID" placeholder="Player ID" size="30"><br>
             <label for="matchNum">Match Number</label>
             <input type="text" id="matchNum" name="matchNum" placeholder="Match Number" size="30"><br>
             <label for="blocks">Blocks</label>
@@ -131,6 +132,7 @@
     </div>
 
     <h1 id="noMatches">No Matches Found</h1>
+    <h1 id="invalidEntry">Invalid ID, Please Try Again or Try Another Field</h1>
 </body>
 
 <script>
@@ -147,6 +149,7 @@
         document.getElementById("searchButtons").style.display = typeSelection.value != "default" ? "block" : "none"
         document.getElementById("resultsWindow").style.display = "none"
         document.getElementById("noMatches").style.visibility = "hidden";
+        document.getElementById("invalidEntry").style.visibility = "hidden";
     }
 
     function resetForm() {
@@ -176,9 +179,26 @@
         return [month, day, year].join('-');
     }
 
+    function textValidation() {
+        const typeSelection = document.getElementById("typeSelection").value
+        const inputs = Array.from(document.getElementById(typeSelection).children).filter(node => node.nodeName == "INPUT")
+        const firstInput = inputs[0]
+        if (firstInput.value !== "") {
+            if (!isNaN(firstInput.value)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     async function getQuerySubmission() {
         // Get the values from the form section according to the dropdown selection
         const typeSelection = document.getElementById("typeSelection").value
+        if (!textValidation()) {
+            document.getElementById("invalidEntry").style.visibility = "visible";
+            return;
+        }
+        document.getElementById("invalidEntry").style.visibility = "hidden";
 
         const inputs = Array.from(document.getElementById(typeSelection).children).filter(node => node.nodeName == "INPUT")
         const queryFormValues = {}
