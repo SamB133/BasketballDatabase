@@ -2,53 +2,71 @@
 
 /* Specific styles for searchData page */
 #queryForm {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #queryResults {
-    background: #e9e9e9;
-    border: none;
+  background: #e9e9e9;
+  border: none;
 }
 
 table {
-    width: 80%; /* Adjust the width as needed */
-    border-collapse: collapse;
-    margin: 20px auto; /* Center the table */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Slight shadow for depth */
+  width: 80%; /* Adjust the width as needed */
+  border-collapse: collapse;
+  margin: 20px auto; /* Center the table */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Slight shadow for depth */
 }
 
 th {
-    background-color: #4CAF50; /* A green shade for headers */
-    color: white;
-    padding: 10px 15px;
-    text-align: left;
+  background-color: #4caf50; /* A green shade for headers */
+  color: white;
+  padding: 10px 15px;
+  text-align: left;
 }
 
 td {
-    background-color: #E8F5E9; /* A lighter green shade for table data */
-    padding: 8px 15px;
+  background-color: #e8f5e9; /* A lighter green shade for table data */
+  padding: 8px 15px;
 }
 
 tr:nth-child(even) td {
-    background-color: #C8E6C9; /* An even lighter green shade for alternate rows */
+  background-color: #c8e6c9; /* An even lighter green shade for alternate rows */
 }
 
 /* Add a hover effect for table rows */
 tr:hover {
-    background-color: #A5D6A7;
+  background-color: #a5d6a7;
 }
 
 /* Style for the table header */
 thead tr {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive table */
 @media (max-width: 600px) {
-    table {
-        width: 100%;
-    }
+  table {
+    width: 100%;
+  }
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: inline-block;
+  width: 300px;
+  text-align: left;
+}
+
+#noMatches,
+#invalidID {
+  visibility: hidden;
+  color: red;
+  position: relative;
+  left: 60px;
 }
