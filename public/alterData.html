@@ -58,7 +58,7 @@
             <option value="default" selected disabled hidden>Choose Table</option>
             <option value="player">Player</option>
             <option value="participatedIn">ParticipatedIn</option>
-            <option value="match">Match</option>
+            <option value="match_">Match</option>
             <option value="playedIn">PlayedIn</option>
             <option value="team">Team</option>
             <option value="manager">Manager</option>
@@ -99,7 +99,7 @@
         </div>
 
         <!-- If 'Match' is selected -->
-        <div id="match">
+        <div id="match_">
             <label id="MMN" for="matchNum">Match Number</label>
             <input type="text" id="matchNum" name="matchNum" placeholder="Match Number" size="30"><br>
             <label for="time">Time</label>
@@ -184,7 +184,7 @@
     function changeTable() {
         // Only show the div for the selected dropdown
         document.getElementById("player").style.display = tableSelector.value == "player" ? "block" : "none"
-        document.getElementById("match").style.display = tableSelector.value == "match" ? "block" : "none"
+        document.getElementById("match_").style.display = tableSelector.value == "match_" ? "block" : "none"
         document.getElementById("participatedIn").style.display = tableSelector.value == "participatedIn" ? "block" : "none"
         document.getElementById("playedIn").style.display = tableSelector.value == "playedIn" ? "block" : "none"
         document.getElementById("team").style.display = tableSelector.value == "team" ? "block" : "none"
