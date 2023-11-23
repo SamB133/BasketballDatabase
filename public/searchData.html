@@ -43,7 +43,7 @@
             <option value="default">Choose Type</option>
             <option value="player">Player</option>
             <option value="participatedIn">Participated In</option>
-            <option value="match">Match</option>
+            <option value="match_">Match</option>
             <option value="playedIn">Played In</option>
             <option value="manager">Manager</option>
         </select>
@@ -83,7 +83,7 @@
         </div>
 
         <!-- If 'Match' is selected -->
-        <div id="match">
+        <div id="match_">
             <label for="matchNum">Match Number</label>
             <input type="text" id="matchNum" name="matchNum" placeholder="Match Number" size="30"><br>
             <label for="time">Time</label>
@@ -142,7 +142,7 @@
 
     function changeTableDropdown() {
         document.getElementById("player").style.display = typeSelection.value == "player" ? "block" : "none"
-        document.getElementById("match").style.display = typeSelection.value == "match" ? "block" : "none"
+        document.getElementById("match_").style.display = typeSelection.value == "match_" ? "block" : "none"
         document.getElementById("participatedIn").style.display = typeSelection.value == "participatedIn" ? "block" : "none"
         document.getElementById("playedIn").style.display = typeSelection.value == "playedIn" ? "block" : "none"
         document.getElementById("manager").style.display = typeSelection.value == "manager" ? "block" : "none"
