@@ -2,10 +2,9 @@ create database project4347;
 use project4347;
 
 CREATE TABLE team(
-    teamID INT NOT NULL AUTO_INCREMENT,
+    teamID2 INT NOT NULL AUTO_INCREMENT,
     teamName VARCHAR(255) UNIQUE,
-	teamID2 VARCHAR(255),
-    CONSTRAINT PK_team PRIMARY KEY (teamID)
+    CONSTRAINT PK_team PRIMARY KEY (teamID2)
 );
 
 create table manager(
@@ -18,8 +17,6 @@ create table manager(
     constraint FK_managerTname foreign key (tName) references team(teamName)
     on delete cascade on update cascade
 );
-
-
 
 create table player(
 	playerID int not null auto_increment,
@@ -51,7 +48,8 @@ create table participatedIn(
 	pointsScored int,
 	passesMade int,
 	constraint PK_participatedIn primary key (playerID,matchNum),
-	constraint FK_participatedIn_id foreign key (playerID) references player(playerID),
+	constraint FK_participatedIn_id foreign key (playerID) references player(playerID)
+	on delete cascade on update cascade,
 	constraint FK_participatedIn_matchNum foreign key (matchNum) references match_(matchNum)
 	on delete cascade on update cascade
 );

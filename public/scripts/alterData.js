@@ -88,7 +88,6 @@ async function getSubmission() {
     })
     let data = await res.json()
     resetForm()
-
     document.getElementById("submitted").style.visibility = "visible";
 }
 
