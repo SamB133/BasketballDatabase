@@ -4,6 +4,7 @@ use project4347;
 CREATE TABLE team(
     teamID INT NOT NULL AUTO_INCREMENT,
     teamName VARCHAR(255) UNIQUE,
+	teamID2 VARCHAR(255),
     CONSTRAINT PK_team PRIMARY KEY (teamID)
 );
 
@@ -47,7 +48,7 @@ create table participatedIn(
 	blocks int,
 	assists int,
 	minutesPlayed int,
-	pointScored int,
+	pointsScored int,
 	passesMade int,
 	constraint PK_participatedIn primary key (playerID,matchNum),
 	constraint FK_participatedIn_id foreign key (playerID) references player(playerID),
@@ -64,6 +65,6 @@ create table playedIn(
 	on delete cascade on update cascade,
 	constraint FK_playedIn_home foreign key (homeTeam) references team(teamName)
 	on delete cascade on update cascade,
-	constraint FK_playedIn_away foreign key (homeTeam) references team(teamName)
+	constraint FK_playedIn_away foreign key (awayTeam) references team(teamName)
 	on delete cascade on update cascade
 );
