@@ -2,9 +2,9 @@ create database project4347;
 use project4347;
 
 CREATE TABLE team(
-    teamID2 INT NOT NULL AUTO_INCREMENT,
+    teamID INT NOT NULL AUTO_INCREMENT,
     teamName VARCHAR(255) UNIQUE,
-    CONSTRAINT PK_team PRIMARY KEY (teamID2)
+    CONSTRAINT PK_team PRIMARY KEY (teamID)
 );
 
 create table manager(
