@@ -76,13 +76,13 @@ async function getQuerySubmission() {
     resetForm()
 
     if (data && Array.isArray(data)) {
-        displayQueryResults(data);
+        displayQueryResults(data, typeSelection);
     } else {
         console.error('No data received or data is not in expected format');
     }
 }
 
-function displayQueryResults(data) {
+function displayQueryResults(data, typeSelection) {
     const tableWindow = document.getElementById("tableWindow");
     tableWindow.innerHTML = ''; // Clear previous results
 
@@ -109,7 +109,8 @@ function displayQueryResults(data) {
                 let td = document.createElement("td");
                 // Format the date if it's in the expected column index
                 // Assuming the date is in the fourth column (index 3)
-                if (index === 3) {
+                // Only works on tables Player and Manager
+                    if (index === 3 && (typeSelection === "player" || typeSelection === "manager")) {
                     td.textContent = formatDate(value);
                 } else {
                     td.textContent = value;
