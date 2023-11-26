@@ -110,7 +110,7 @@ function displayQueryResults(data, typeSelection) {
                 // Format the date if it's in the expected column index
                 // Assuming the date is in the fourth column (index 3)
                 // Only works on tables Player and Manager
-                    if (index === 3 && (typeSelection === "player" || typeSelection === "manager")) {
+                if ((index === 3 && typeSelection === "player") || (index === 4 && typeSelection === "manager")) {
                     td.textContent = formatDate(value);
                 } else {
                     td.textContent = value;
