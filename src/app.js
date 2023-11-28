@@ -6,7 +6,7 @@ const port = process.env.PORT ?? 3000
 
 app.use(express.static('public'))
 
-const tables = ['player', 'participatedIn', 'match_', 'playedIn', 'manager']
+const tables = ['player', 'participatedIn', 'match_', 'playedIn', 'manager', 'team']
 const idColumns = ['playerID', 'teamID', 'matchNum', 'managerID', "Mnum"]
 
 app.get('/api/:table', (req, res) => {
@@ -82,6 +82,9 @@ app.patch('/api/:table', (req, res) => {
         const values = Object.keys(req.query)
             .filter(key => req.query[key] !== '*')
             .map(key => req.query[key]);
+
+        // band-aid on a stab wound fix
+        values.push(values.shift());
 
         connection.query(`UPDATE ${req.params.table} SET ${updateFields} WHERE ${where}`, values, function (error, results) {
             if (error) return res.status(500).send({ error: error });
