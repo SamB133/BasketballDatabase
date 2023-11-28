@@ -17,11 +17,13 @@ app.get('/api/:table', (req, res) => {
 
         const where = Object.keys(req.query)
             .filter(key => req.query[key] !== '*')
-            .map(key =>
-                `${key} LIKE '%${req.query[key]}%'`
-            ).join(' AND ');
+            .map(key =>`${key} LIKE ?`);
 
-        connection.query(`SELECT * FROM ${req.params.table} ${where === '' ? '' : 'WHERE'} ${where}`, function (error, results, fields) {
+        const values = Object.keys(req.query)
+            .filter(key => req.query[key] !== '*')
+            .map(key =>`%${req.query[key]}%`);
+
+        connection.query(`SELECT * FROM ${req.params.table} ${where.length ? 'WHERE ' + where.join(' AND ') : ''}`, values, function (error, results) {
             if (error) return res.status(500).send({ error: error });
             res.send(results);
         });
@@ -38,11 +40,14 @@ app.post('/api/:table', (req, res) => {
 
         const set = Object.keys(req.query)
             .filter(key => req.query[key] !== '*')
-            .map(key =>
-                `${key} = '${req.query[key]}'`
-            ).join(', ');
+            .map(key => `${key} = ?`)
+            .join(', ');
 
-        connection.query(`INSERT INTO ${req.params.table} SET ${set}`, function (error, results, fields) {
+        const values = Object.keys(req.query)
+            .filter(key => req.query[key] !== '*')
+            .map(key => req.query[key]);
+
+        connection.query(`INSERT INTO ${req.params.table} SET ${set}`, values, function (error, results, fields) {
             if (error) return res.status(500).send({ error: error });
             res.send(results);
         });
@@ -64,17 +69,21 @@ app.patch('/api/:table', (req, res) => {
             .filter(key => req.query[key] !== '*')
             .filter((key) => idColumns.includes(key))
             .map(key =>
-                `${key} = '${req.query[key]}'`
+                `${key} = ?`
             ).join(' AND ');
 
         const updateFields = Object.keys(req.query)
             .filter(key => req.query[key] !== '*')
             .filter((key) => !idColumns.includes(key))
             .map(key =>
-                `${key} = '${req.query[key]}'`)
+                `${key} = ?`)
             .join(', ');
 
-        connection.query(`UPDATE ${req.params.table} SET ${updateFields} WHERE ${where}`, function (error, results) {
+        const values = Object.keys(req.query)
+            .filter(key => req.query[key] !== '*')
+            .map(key => req.query[key]);
+
+        connection.query(`UPDATE ${req.params.table} SET ${updateFields} WHERE ${where}`, values, function (error, results) {
             if (error) return res.status(500).send({ error: error });
             res.send(results);
         });
